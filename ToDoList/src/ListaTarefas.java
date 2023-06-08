@@ -8,7 +8,6 @@
  * @author yuri
  */
 public class ListaTarefas extends javax.swing.JFrame {
-
     /**
      * Creates new form ListaTarefas
      */
@@ -29,6 +28,7 @@ public class ListaTarefas extends javax.swing.JFrame {
         menuTarefas = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaListaTarefas = new javax.swing.JTable();
+        btGetTarefas = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,7 +60,7 @@ public class ListaTarefas extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class, java.lang.String.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -71,21 +71,33 @@ public class ListaTarefas extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabelaListaTarefas);
         tabelaListaTarefas.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
+        btGetTarefas.setText("GetTarefas");
+        btGetTarefas.setToolTipText("");
+        btGetTarefas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGetTarefasActionPerformed(evt);
+            }
+        });
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(menuCadastro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(menuTarefas))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(menuCadastro)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(menuTarefas))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btGetTarefas)
+                        .addGap(448, 448, 448))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,7 +107,9 @@ public class ListaTarefas extends javax.swing.JFrame {
                     .addComponent(menuTarefas))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btGetTarefas)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
@@ -110,6 +124,12 @@ public class ListaTarefas extends javax.swing.JFrame {
         new CadastroTarefa().setVisible(true);  
         setVisible(false);  
     }//GEN-LAST:event_menuCadastroActionPerformed
+
+    private void btGetTarefasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGetTarefasActionPerformed
+        CadastroTarefa teste = new CadastroTarefa();
+        
+        System.out.println(teste.ListaTarefas);
+    }//GEN-LAST:event_btGetTarefasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,6 +167,7 @@ public class ListaTarefas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btGetTarefas;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton menuCadastro;
