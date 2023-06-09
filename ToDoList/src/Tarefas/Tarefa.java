@@ -1,3 +1,7 @@
+package Tarefas;
+
+import java.util.ArrayList;
+import java.util.List;
 public class Tarefa {
     private int ID;
     private String Titulo;
@@ -14,29 +18,15 @@ public class Tarefa {
         this.Prioridade = Prioridade;
         this.Status = Status;
     }
-
-    public String getTitulo() {
-        return Titulo;
+    
+    public static List<Tarefa> Tarefas = new ArrayList<> ();
+    
+    public static List<Tarefa> getListaTarefas(){
+        return Tarefas;
     }
-
-    public int getID() {
-        return ID;
-    }
-
-    public String getDescricao() {
-        return Descricao;
-    }
-
-    public String getDataEntrega() {
-        return DataEntrega;
-    }
-
-    public String getPrioridade() {
-        return Prioridade;
-    }
-
-    public Boolean getStatus() {
-        return Status;
+    
+    public static void setListaTarefas(Tarefa newTarefa){
+        Tarefas.add(newTarefa);
     }
    
 }

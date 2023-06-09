@@ -1,6 +1,5 @@
+package Tarefas;
 
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -67,13 +66,11 @@ public class CadastroTarefa extends javax.swing.JFrame {
         inputDataEntrega = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        menuCadastro = new javax.swing.JButton();
         menuTarefas = new javax.swing.JButton();
         checkBaixa = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
         checkMedia = new javax.swing.JRadioButton();
         checkAlta = new javax.swing.JRadioButton();
-        btTetse = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         jRadioButtonMenuItem1.setSelected(true);
@@ -129,7 +126,6 @@ public class CadastroTarefa extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CadastroTarefa");
-        setPreferredSize(new java.awt.Dimension(980, 450));
 
         btCancelarCadastroTarefa.setText("Cancelar");
         btCancelarCadastroTarefa.setToolTipText("btCancelar");
@@ -184,13 +180,6 @@ public class CadastroTarefa extends javax.swing.JFrame {
 
         jLabel3.setText("Data de Entrega");
 
-        menuCadastro.setText("Cadastro");
-        menuCadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuCadastroActionPerformed(evt);
-            }
-        });
-
         menuTarefas.setText("Tarefas");
         menuTarefas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,13 +212,6 @@ public class CadastroTarefa extends javax.swing.JFrame {
                 checkAltaActionPerformed(evt);
             }
         });
-
-        btTetse.setText("TESTE");
-        btTetse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btTetseActionPerformed(evt);
-            }
-        });
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -237,51 +219,47 @@ public class CadastroTarefa extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel1))
+                                    .addGap(383, 383, 383))
+                                .addComponent(inputDataEntrega)
+                                .addComponent(jScrollPane1)
+                                .addComponent(inputTitulo)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(15, 15, 15)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(checkBaixa)
+                            .addGap(18, 18, 18)
+                            .addComponent(checkMedia)
+                            .addGap(18, 18, 18)
+                            .addComponent(checkAlta))
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel4))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGap(103, 103, 103)
+                            .addComponent(btCancelarCadastroTarefa)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btCadastroTarefa)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1))
-                                .addGap(383, 383, 383))
-                            .addComponent(inputDataEntrega)
-                            .addComponent(jScrollPane1)
-                            .addComponent(inputTitulo)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(menuCadastro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(menuTarefas))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(checkBaixa)
-                        .addGap(18, 18, 18)
-                        .addComponent(checkMedia)
-                        .addGap(18, 18, 18)
-                        .addComponent(checkAlta))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(btTetse)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btCancelarCadastroTarefa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btCadastroTarefa)))
+                        .addComponent(menuTarefas)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(menuCadastro)
-                    .addComponent(menuTarefas))
+                .addComponent(menuTarefas)
                 .addGap(28, 28, 28)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -306,8 +284,7 @@ public class CadastroTarefa extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCadastroTarefa)
-                    .addComponent(btCancelarCadastroTarefa)
-                    .addComponent(btTetse))
+                    .addComponent(btCancelarCadastroTarefa))
                 .addGap(33, 33, 33))
         );
 
@@ -315,9 +292,16 @@ public class CadastroTarefa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
    
-    public List<Tarefa> ListaTarefas = new ArrayList<>();
+    private static Tarefa tarefa;
     
+    public static void setTarefas(Tarefa newTarefa){
+        tarefa.setListaTarefas(newTarefa);
+    }
     
+    public static List<Tarefa> getTarefas(){
+        return tarefa.getListaTarefas();
+    }
+   
     private void btCancelarCadastroTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarCadastroTarefaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btCancelarCadastroTarefaActionPerformed
@@ -336,6 +320,7 @@ public class CadastroTarefa extends javax.swing.JFrame {
         String DataEntrega = inputDataEntrega.getText();
         String Prioridade = "";
         Boolean Status = false;
+        
         if(checkAlta.isSelected()){
             Prioridade = "Alta";
         } else if(checkMedia.isSelected()){
@@ -343,22 +328,18 @@ public class CadastroTarefa extends javax.swing.JFrame {
         } else if(checkBaixa.isSelected()){
             Prioridade = "Baixa";
         }
-        int ID = ListaTarefas.size();
+        
+        int ID = tarefa.Tarefas.size();
         
         Tarefa TarefaCriada = new Tarefa(ID, Titulo, Descricao, DataEntrega, Prioridade, Status);
+        setTarefas(TarefaCriada);
         
-        ListaTarefas.add(TarefaCriada);
     }//GEN-LAST:event_btCadastroTarefaActionPerformed
 
     private void menuTarefasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTarefasActionPerformed
-        new ListaTarefas().setVisible(true);  
+        new EdicaoTarefa().setVisible(true);  
         setVisible(false);   
     }//GEN-LAST:event_menuTarefasActionPerformed
-
-    private void menuCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroActionPerformed
-        new CadastroTarefa().setVisible(true);  
-        setVisible(false);  
-    }//GEN-LAST:event_menuCadastroActionPerformed
 
     private void checkBaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBaixaActionPerformed
         // TODO add your handling code here:
@@ -374,16 +355,11 @@ public class CadastroTarefa extends javax.swing.JFrame {
 
     private void inputTituloComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_inputTituloComponentAdded
         // TODO add your handling code here:
- 
     }//GEN-LAST:event_inputTituloComponentAdded
 
     private void inputTituloInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_inputTituloInputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_inputTituloInputMethodTextChanged
-
-    private void btTetseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTetseActionPerformed
-        System.out.println(ListaTarefas);
-    }//GEN-LAST:event_btTetseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -421,9 +397,8 @@ public class CadastroTarefa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btCadastroTarefa;
+    public javax.swing.JButton btCadastroTarefa;
     private javax.swing.JButton btCancelarCadastroTarefa;
-    private javax.swing.JButton btTetse;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton checkAlta;
     private javax.swing.JRadioButton checkBaixa;
@@ -463,7 +438,6 @@ public class CadastroTarefa extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JButton menuCadastro;
     private javax.swing.JButton menuTarefas;
     // End of variables declaration//GEN-END:variables
 }
