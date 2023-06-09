@@ -299,7 +299,8 @@ public class CadastroTarefa extends javax.swing.JFrame {
     }
    
     private void btCancelarCadastroTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarCadastroTarefaActionPerformed
-        // TODO add your handling code here:
+        new ListaTarefas().setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_btCancelarCadastroTarefaActionPerformed
 
     private void inputTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTituloActionPerformed
@@ -329,6 +330,11 @@ public class CadastroTarefa extends javax.swing.JFrame {
         
         Tarefa TarefaCriada = new Tarefa(ID, Titulo, Descricao, DataEntrega, Prioridade, Status);
         setTarefas(TarefaCriada);
+        
+        Agradecimento.setFrase("Tarefa cadastrada com sucesso!");
+        
+        new Agradecimento().setVisible(true);
+        setVisible(false);
         
     }//GEN-LAST:event_btCadastroTarefaActionPerformed
 

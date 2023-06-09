@@ -150,7 +150,8 @@ public class EdicaoTarefa extends javax.swing.JFrame {
     }//GEN-LAST:event_menuTarefasActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        // TODO add your handling code here:
+        new ListaTarefas().setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed

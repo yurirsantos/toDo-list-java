@@ -37,8 +37,7 @@ public class Tarefa {
     
     public static void setListaTarefas(Tarefa newTarefa){
         Tarefas.add(newTarefa);
-    } 
-    
+    }
     
     public static String getTitleTarefa(int ID){
         return Tarefas.get(ID).Titulo;
