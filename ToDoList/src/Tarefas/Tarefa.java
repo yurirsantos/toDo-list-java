@@ -19,6 +19,16 @@ public class Tarefa {
         this.Status = Status;
     }
     
+    public static int IDTarefaEdicao;
+    
+    public static void selectIdTarefaEdicao(int ID){
+        IDTarefaEdicao = ID;
+    }
+    
+    public static int IDTarefaEdicao(){
+        return IDTarefaEdicao;
+    }
+    
     public static List<Tarefa> Tarefas = new ArrayList<> ();
     
     public static List<Tarefa> getListaTarefas(){

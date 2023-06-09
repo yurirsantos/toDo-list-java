@@ -6,7 +6,6 @@ package Tarefas;
 
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumnModel;
 
 /**
  *
@@ -33,6 +32,10 @@ public class ListaTarefas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableListaTarefas = new javax.swing.JTable();
         menuCadastro = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        inputIDTarefa = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,6 +82,17 @@ public class ListaTarefas extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Acessar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("ID Tarefa");
+
+        jLabel2.setText("Informe o ID da tarefa para edição");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -87,17 +101,32 @@ public class ListaTarefas extends javax.swing.JFrame {
                 .addComponent(menuCadastro)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1004, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1097, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(inputIDTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jButton1))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(menuCadastro)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inputIDTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
@@ -105,7 +134,6 @@ public class ListaTarefas extends javax.swing.JFrame {
    
     List<Tarefa> listaTarefas = Tarefa.getListaTarefas();
     DefaultTableModel modeloTabela = new DefaultTableModel();
-
     
     private void menuCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroActionPerformed
         new CadastroTarefa().setVisible(true);  
@@ -119,7 +147,7 @@ public class ListaTarefas extends javax.swing.JFrame {
     modeloTabela.addColumn("Data de Entrega");
     modeloTabela.addColumn("Prioridade");    
     modeloTabela.addColumn("Status");
-
+    
     int i = 0;
     
     for (Tarefa tarefa : listaTarefas) {
@@ -129,7 +157,8 @@ public class ListaTarefas extends javax.swing.JFrame {
             Tarefa.getDescricaoTarefa(i), 
             Tarefa.getDataEntrega(i), 
             Tarefa.getPrioridade(i), 
-            Tarefa.getStatusTarefa(i)
+            Tarefa.getStatusTarefa(i),
+            
         });      
         
         i = i + 1;
@@ -137,6 +166,13 @@ public class ListaTarefas extends javax.swing.JFrame {
 
     tableListaTarefas.setModel(modeloTabela);
     }//GEN-LAST:event_tableListaTarefasAncestorAdded
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       new EdicaoTarefa().setVisible(true);
+        setVisible(false);
+
+        Tarefa.selectIdTarefaEdicao(Integer.parseInt(inputIDTarefa.getText()));
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,6 +210,10 @@ public class ListaTarefas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField inputIDTarefa;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton menuCadastro;
     private javax.swing.JTable tableListaTarefas;

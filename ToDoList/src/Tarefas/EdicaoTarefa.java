@@ -1,4 +1,7 @@
 package Tarefas;
+
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -27,15 +30,16 @@ public class EdicaoTarefa extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaListaTarefas = new javax.swing.JTable();
+        tabelaEdicaoTarefa = new javax.swing.JTable();
         menuCadastro = new javax.swing.JButton();
         menuTarefas = new javax.swing.JButton();
         btCancelar = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        tabelaListaTarefas.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaEdicaoTarefa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -54,8 +58,17 @@ public class EdicaoTarefa extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        tabelaListaTarefas.setColumnSelectionAllowed(true);
-        jScrollPane1.setViewportView(tabelaListaTarefas);
+        tabelaEdicaoTarefa.setColumnSelectionAllowed(true);
+        tabelaEdicaoTarefa.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                tabelaEdicaoTarefaAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jScrollPane1.setViewportView(tabelaEdicaoTarefa);
 
         menuCadastro.setText("Cadastro");
         menuCadastro.addActionListener(new java.awt.event.ActionListener() {
@@ -85,6 +98,13 @@ public class EdicaoTarefa extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("TESTE");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,14 +115,21 @@ public class EdicaoTarefa extends javax.swing.JFrame {
                 .addComponent(menuTarefas)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btCancelar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btSalvar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btCancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btSalvar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(296, 296, 296)
+                                .addComponent(jButton1)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -117,12 +144,16 @@ public class EdicaoTarefa extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCancelar)
                     .addComponent(btSalvar))
-                .addGap(0, 323, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(jButton1)
+                .addGap(0, 264, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
         
+    DefaultTableModel modeloTabela = new DefaultTableModel();
+    
     private void menuCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroActionPerformed
         new CadastroTarefa().setVisible(true);
         setVisible(false);
@@ -140,6 +171,31 @@ public class EdicaoTarefa extends javax.swing.JFrame {
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btSalvarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.out.println(Tarefa.getDescricaoTarefa(Tarefa.IDTarefaEdicao()));
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tabelaEdicaoTarefaAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tabelaEdicaoTarefaAncestorAdded
+        modeloTabela.addColumn("ID");
+        modeloTabela.addColumn("Título");
+        modeloTabela.addColumn("Descrição");    
+        modeloTabela.addColumn("Data de Entrega");
+        modeloTabela.addColumn("Prioridade");    
+        modeloTabela.addColumn("Status");
+        
+        modeloTabela.addRow(new Object[]{
+            Tarefa.getIdTarefa(Tarefa.IDTarefaEdicao()), 
+            Tarefa.getTitleTarefa(Tarefa.IDTarefaEdicao()), 
+            Tarefa.getDescricaoTarefa(Tarefa.IDTarefaEdicao()), 
+            Tarefa.getDataEntrega(Tarefa.IDTarefaEdicao()), 
+            Tarefa.getPrioridade(Tarefa.IDTarefaEdicao()), 
+            Tarefa.getStatusTarefa(Tarefa.IDTarefaEdicao()),
+
+        });      
+
+        tabelaEdicaoTarefa.setModel(modeloTabela);
+    }//GEN-LAST:event_tabelaEdicaoTarefaAncestorAdded
 
     /**
      * @param args the command line arguments
@@ -180,10 +236,11 @@ public class EdicaoTarefa extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCancelar;
     private javax.swing.JButton btSalvar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton menuCadastro;
     private javax.swing.JButton menuTarefas;
-    private javax.swing.JTable tabelaListaTarefas;
+    private javax.swing.JTable tabelaEdicaoTarefa;
     // End of variables declaration//GEN-END:variables
 
 
