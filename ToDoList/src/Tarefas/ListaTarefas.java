@@ -165,6 +165,7 @@ public class ListaTarefas extends javax.swing.JFrame {
     }
 
     tableListaTarefas.setModel(modeloTabela);
+   
     }//GEN-LAST:event_tableListaTarefasAncestorAdded
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

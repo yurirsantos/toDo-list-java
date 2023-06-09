@@ -35,6 +35,11 @@ public class Tarefa {
         return Tarefas;
     }
     
+    public static void setListaTarefas(Tarefa newTarefa){
+        Tarefas.add(newTarefa);
+    } 
+    
+    
     public static String getTitleTarefa(int ID){
         return Tarefas.get(ID).Titulo;
     }
@@ -58,8 +63,4 @@ public class Tarefa {
     public static Boolean getStatusTarefa(int ID){
         return Tarefas.get(ID).Status;
     }
-    
-    public static void setListaTarefas(Tarefa newTarefa){
-        Tarefas.add(newTarefa);
-    } 
 }
