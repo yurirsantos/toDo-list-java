@@ -337,7 +337,7 @@ public class CadastroTarefa extends javax.swing.JFrame {
     }//GEN-LAST:event_btCadastroTarefaActionPerformed
 
     private void menuTarefasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTarefasActionPerformed
-        new EdicaoTarefa().setVisible(true);  
+        new ListaTarefas().setVisible(true);  
         setVisible(false);   
     }//GEN-LAST:event_menuTarefasActionPerformed
 
