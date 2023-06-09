@@ -25,8 +25,31 @@ public class Tarefa {
         return Tarefas;
     }
     
+    public static String getTitleTarefa(int ID){
+        return Tarefas.get(ID).Titulo;
+    }
+    
+    public static int getIdTarefa(int ID){
+        return Tarefas.get(ID).ID;
+    }
+    
+    public static String getDescricaoTarefa(int ID){
+        return Tarefas.get(ID).Descricao;
+    }
+    
+    public static String getDataEntrega(int ID){
+        return Tarefas.get(ID).DataEntrega;
+    }
+    
+    public static String getPrioridade(int ID){
+        return Tarefas.get(ID).Prioridade;
+    }
+    
+    public static Boolean getStatusTarefa(int ID){
+        return Tarefas.get(ID).Status;
+    }
+    
     public static void setListaTarefas(Tarefa newTarefa){
         Tarefas.add(newTarefa);
-    }
-   
+    } 
 }

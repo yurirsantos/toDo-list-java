@@ -32,7 +32,6 @@ public class EdicaoTarefa extends javax.swing.JFrame {
         menuTarefas = new javax.swing.JButton();
         btCancelar = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
-        btGetTarefas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,13 +85,6 @@ public class EdicaoTarefa extends javax.swing.JFrame {
             }
         });
 
-        btGetTarefas.setText("getTarefas");
-        btGetTarefas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btGetTarefasActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -108,8 +100,6 @@ public class EdicaoTarefa extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btGetTarefas)
-                .addGap(352, 352, 352)
                 .addComponent(btCancelar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btSalvar)
@@ -126,8 +116,7 @@ public class EdicaoTarefa extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCancelar)
-                    .addComponent(btSalvar)
-                    .addComponent(btGetTarefas))
+                    .addComponent(btSalvar))
                 .addGap(0, 323, Short.MAX_VALUE))
         );
 
@@ -151,10 +140,6 @@ public class EdicaoTarefa extends javax.swing.JFrame {
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btSalvarActionPerformed
-
-    private void btGetTarefasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGetTarefasActionPerformed
-        System.out.println(CadastroTarefa.getTarefas());
-    }//GEN-LAST:event_btGetTarefasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,7 +179,6 @@ public class EdicaoTarefa extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCancelar;
-    private javax.swing.JButton btGetTarefas;
     private javax.swing.JButton btSalvar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton menuCadastro;

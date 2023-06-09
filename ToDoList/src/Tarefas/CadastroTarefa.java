@@ -297,10 +297,6 @@ public class CadastroTarefa extends javax.swing.JFrame {
     public static void setTarefas(Tarefa newTarefa){
         tarefa.setListaTarefas(newTarefa);
     }
-    
-    public static List<Tarefa> getTarefas(){
-        return tarefa.getListaTarefas();
-    }
    
     private void btCancelarCadastroTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarCadastroTarefaActionPerformed
         // TODO add your handling code here:
