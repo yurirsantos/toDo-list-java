@@ -60,7 +60,15 @@ public class Tarefa {
         return Tarefas.get(ID).Prioridade;
     }
     
-    public static Boolean getStatusTarefa(int ID){
-        return Tarefas.get(ID).Status;
+    public static String getStatusTarefa(int ID){
+        String status;
+        
+        if(Tarefas.get(ID).Status){
+            status = "Finalizado";
+        }else {
+            status = "Pendente";
+        }
+            
+        return status;
     }
 }
