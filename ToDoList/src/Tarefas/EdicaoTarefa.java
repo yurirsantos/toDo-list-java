@@ -28,8 +28,6 @@ public class EdicaoTarefa extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        menuCadastro = new javax.swing.JButton();
-        menuTarefas = new javax.swing.JButton();
         btCancelar = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -48,20 +46,6 @@ public class EdicaoTarefa extends javax.swing.JFrame {
         btAbrirTarefa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        menuCadastro.setText("Cadastro");
-        menuCadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuCadastroActionPerformed(evt);
-            }
-        });
-
-        menuTarefas.setText("Tarefas");
-        menuTarefas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuTarefasActionPerformed(evt);
-            }
-        });
 
         btCancelar.setText("Cancelar");
         btCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -180,11 +164,6 @@ public class EdicaoTarefa extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(menuCadastro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(menuTarefas)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -225,10 +204,7 @@ public class EdicaoTarefa extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(menuCadastro)
-                    .addComponent(menuTarefas))
-                .addGap(18, 18, 18)
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(textStatusTarefa))
@@ -264,11 +240,6 @@ public class EdicaoTarefa extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void menuCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroActionPerformed
-        new CadastroTarefa().setVisible(true);
-        setVisible(false);
-    }//GEN-LAST:event_menuCadastroActionPerformed
     
     public static void setInfoTarefa() {
         if (inputTitulo != null || inputDescricao != null || inputDataEntrega != null) {
@@ -304,11 +275,6 @@ public class EdicaoTarefa extends javax.swing.JFrame {
         }
     }
     
-    private void menuTarefasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTarefasActionPerformed
-        new ListaTarefas().setVisible(true);
-        setVisible(false);
-    }//GEN-LAST:event_menuTarefasActionPerformed
-
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
         new ListaTarefas().setVisible(true);
         setVisible(false);
@@ -442,8 +408,6 @@ public class EdicaoTarefa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton menuCadastro;
-    private javax.swing.JButton menuTarefas;
     public static javax.swing.JLabel textStatusTarefa;
     // End of variables declaration//GEN-END:variables
 

@@ -33,6 +33,11 @@ public class Usuario {
     
     private static List<Usuario> ListaUsuarios = new ArrayList<> ();
     
+    public static void registerUsuarioPadrao(){
+        Usuario usuarioPadrao = new Usuario(0, "Yuri Rhuan dos Santos", "yuri@gmail.com", "Administrador", "1234", true);
+        ListaUsuarios.add(usuarioPadrao);
+    }
+
     public static List<Usuario> getListaUsuarios(){
         return ListaUsuarios;
     }
@@ -48,13 +53,21 @@ public class Usuario {
             }
         }
         
-        if(loginSelect.nome.length() >= 0){
+        if(loginSelect.nome.length() > 0){
              if (loginSelect.senha.equals(senha)){
                 return true;
             }      
         }
 
         return false;
+    }
+    
+    public static String getTipoUsuario(){
+        return ListaUsuarios.get(loginSelect.ID).tipo;
+    }
+    
+    public static int getLoginUsuarioId (){
+        return loginSelect.ID;
     }
     
 }

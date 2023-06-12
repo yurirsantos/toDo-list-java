@@ -26,36 +26,40 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btCadastro = new javax.swing.JButton();
-        btTarefas = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        btCadastroUsuario = new javax.swing.JButton();
+        menuCadastroTarefa = new javax.swing.JButton();
+        menuTarefas = new javax.swing.JButton();
+        menuCadastroUsuario = new javax.swing.JButton();
+        btSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFont(new java.awt.Font("aakar", 1, 18)); // NOI18N
 
-        btCadastro.setText("Cadastro Tarefa");
-        btCadastro.addActionListener(new java.awt.event.ActionListener() {
+        menuCadastroTarefa.setText("Cadastro Tarefa");
+        menuCadastroTarefa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCadastroActionPerformed(evt);
+                menuCadastroTarefaActionPerformed(evt);
             }
         });
 
-        btTarefas.setText("Tarefas");
-        btTarefas.addActionListener(new java.awt.event.ActionListener() {
+        menuTarefas.setText("Tarefas");
+        menuTarefas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btTarefasActionPerformed(evt);
+                menuTarefasActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-        jLabel1.setText("toDo Lista em Java");
-
-        btCadastroUsuario.setText("Cadastro Usuário");
-        btCadastroUsuario.addActionListener(new java.awt.event.ActionListener() {
+        menuCadastroUsuario.setText("Cadastro Usuário");
+        menuCadastroUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCadastroUsuarioActionPerformed(evt);
+                menuCadastroUsuarioActionPerformed(evt);
+            }
+        });
+
+        btSair.setText("Sair");
+        btSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSairActionPerformed(evt);
             }
         });
 
@@ -64,45 +68,58 @@ public class Home extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btCadastro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btCadastroUsuario))
-                    .addComponent(jLabel1))
+                .addComponent(menuCadastroTarefa)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btTarefas)
+                .addComponent(menuCadastroUsuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(menuTarefas)
                 .addGap(0, 41, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(159, 159, 159)
+                .addComponent(btSair)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btCadastro)
-                    .addComponent(btCadastroUsuario)
-                    .addComponent(btTarefas))
-                .addGap(39, 39, 39)
-                .addComponent(jLabel1)
-                .addContainerGap(215, Short.MAX_VALUE))
+                    .addComponent(menuCadastroTarefa)
+                    .addComponent(menuCadastroUsuario)
+                    .addComponent(menuTarefas))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 252, Short.MAX_VALUE)
+                .addComponent(btSair))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroActionPerformed
+    public static void getUsuarioLogin (){
+        if(Usuario.getTipoUsuario().equals("Normal")){
+            menuCadastroTarefa.setVisible(false);
+            menuCadastroUsuario.setVisible(false);
+        }
+       
+    }
+    
+    private void menuCadastroTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroTarefaActionPerformed
         new CadastroTarefa().setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_btCadastroActionPerformed
+    }//GEN-LAST:event_menuCadastroTarefaActionPerformed
 
-    private void btTarefasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTarefasActionPerformed
+    private void menuTarefasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTarefasActionPerformed
         new ListaTarefas().setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_btTarefasActionPerformed
+    }//GEN-LAST:event_menuTarefasActionPerformed
 
-    private void btCadastroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroUsuarioActionPerformed
+    private void menuCadastroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroUsuarioActionPerformed
         new CadastroUsuario().setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_btCadastroUsuarioActionPerformed
+    }//GEN-LAST:event_menuCadastroUsuarioActionPerformed
+
+    private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
+        new Login().setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,14 +152,16 @@ public class Home extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Home().setVisible(true);
+                
             }
         });
+ 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btCadastro;
-    private javax.swing.JButton btCadastroUsuario;
-    private javax.swing.JButton btTarefas;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btSair;
+    private static javax.swing.JButton menuCadastroTarefa;
+    private static javax.swing.JButton menuCadastroUsuario;
+    private javax.swing.JButton menuTarefas;
     // End of variables declaration//GEN-END:variables
 }
