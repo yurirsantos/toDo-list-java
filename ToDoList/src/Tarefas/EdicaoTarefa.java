@@ -32,6 +32,7 @@ public class EdicaoTarefa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         menuCadastro = new javax.swing.JButton();
         menuTarefas = new javax.swing.JButton();
         btCancelar = new javax.swing.JButton();
@@ -48,6 +49,8 @@ public class EdicaoTarefa extends javax.swing.JFrame {
         inputTitulo = new javax.swing.JTextField();
         checkMedia = new javax.swing.JRadioButton();
         textStatusTarefa = new javax.swing.JLabel();
+        btFinalizarTarefa = new javax.swing.JButton();
+        btAbrirTarefa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,6 +84,7 @@ public class EdicaoTarefa extends javax.swing.JFrame {
 
         jLabel1.setText("Título");
 
+        buttonGroup1.add(checkAlta);
         checkAlta.setText("Alta");
         checkAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,6 +117,7 @@ public class EdicaoTarefa extends javax.swing.JFrame {
 
         jLabel3.setText("Data de Entrega");
 
+        buttonGroup1.add(checkBaixa);
         checkBaixa.setText("Baixa");
         checkBaixa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,6 +146,7 @@ public class EdicaoTarefa extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(checkMedia);
         checkMedia.setText("Média");
         checkMedia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,6 +166,20 @@ public class EdicaoTarefa extends javax.swing.JFrame {
             }
         });
 
+        btFinalizarTarefa.setText("Finalizar Tarefa");
+        btFinalizarTarefa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btFinalizarTarefaActionPerformed(evt);
+            }
+        });
+
+        btAbrirTarefa.setText("Abrir Tarefa");
+        btAbrirTarefa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAbrirTarefaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -173,34 +193,39 @@ public class EdicaoTarefa extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(textStatusTarefa)
+                        .addGap(21, 21, 21))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btCancelar)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btSalvar))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel2))
+                                    .addGap(383, 383, 383))
+                                .addComponent(inputDataEntrega, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(inputTitulo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(checkBaixa)
                                 .addGap(18, 18, 18)
                                 .addComponent(checkMedia)
                                 .addGap(18, 18, 18)
                                 .addComponent(checkAlta))
-                            .addComponent(jLabel4)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btCancelar)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btSalvar))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jLabel2))
-                                        .addGap(383, 383, 383))
-                                    .addComponent(inputDataEntrega)
-                                    .addComponent(jScrollPane1)
-                                    .addComponent(inputTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel4))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(textStatusTarefa)
-                        .addGap(21, 21, 21))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btAbrirTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btFinalizarTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(125, 125, 125))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,11 +254,15 @@ public class EdicaoTarefa extends javax.swing.JFrame {
                     .addComponent(checkBaixa)
                     .addComponent(checkMedia)
                     .addComponent(checkAlta))
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btAbrirTarefa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btFinalizarTarefa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCancelar)
                     .addComponent(btSalvar))
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         inputTitulo.getAccessibleContext().setAccessibleParent(inputTitulo);
@@ -254,7 +283,29 @@ public class EdicaoTarefa extends javax.swing.JFrame {
             
             textStatusTarefa.setText(Tarefa.getStatusTarefa(Tarefa.IDTarefaEdicao));
             
-            System.out.println(Tarefa.getPrioridadeTarefa(Tarefa.IDTarefaEdicao));
+            if("Finalizado".equals(Tarefa.getStatusTarefa(Tarefa.IDTarefaEdicao))){
+                btFinalizarTarefa.setVisible(false);                
+                btAbrirTarefa.setVisible(true);
+            }else {                
+                btFinalizarTarefa.setVisible(true);                
+                btAbrirTarefa.setVisible(false);
+            }
+                   
+            switch (Tarefa.getPrioridadeTarefa(Tarefa.IDTarefaEdicao)) {
+                
+            case "Alta":
+                checkAlta.setSelected(true);
+                break;
+            case "Média":
+                checkMedia.setSelected(true);
+                break;
+            case "Baixa":
+                checkBaixa.setSelected(true);
+                break;
+            default:
+                break;
+            }  
+ 
         }
     }
     
@@ -269,7 +320,26 @@ public class EdicaoTarefa extends javax.swing.JFrame {
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        // TODO add your handling code here:
+       String newPrioridade = "";
+        
+       Tarefa.setNewTitleTarefa(inputTitulo.getText());       
+       Tarefa.setNewDescricaoTarefa(inputDescricao.getText());
+       Tarefa.setNewDataEntregaTarefa(inputDataEntrega.getText());
+       
+       if(checkAlta.isSelected()){
+           newPrioridade = "Alta";
+       } else if(checkMedia.isSelected()){
+           newPrioridade = "Média";
+       } else if(checkBaixa.isSelected()){
+           newPrioridade = "Baixa";
+       }
+       
+       Tarefa.setNewPrioridade(newPrioridade);
+       
+       Agradecimento.setFrase("Tarefa atualizada com sucesso!");
+       new Agradecimento().setVisible(true);
+       setVisible(false);
+
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void checkAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAltaActionPerformed
@@ -289,7 +359,7 @@ public class EdicaoTarefa extends javax.swing.JFrame {
     }//GEN-LAST:event_checkMediaActionPerformed
                                  
     private void inputTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTituloActionPerformed
-        setInfoTarefa();
+
     }//GEN-LAST:event_inputTituloActionPerformed
 
     private void inputTituloInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_inputTituloInputMethodTextChanged
@@ -307,6 +377,22 @@ public class EdicaoTarefa extends javax.swing.JFrame {
     private void textStatusTarefaAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_textStatusTarefaAncestorAdded
 
     }//GEN-LAST:event_textStatusTarefaAncestorAdded
+
+    private void btFinalizarTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFinalizarTarefaActionPerformed
+        Tarefa.setNewStatus(true);
+               
+        Agradecimento.setFrase("Tarefa finalizada com sucesso!");
+        new Agradecimento().setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btFinalizarTarefaActionPerformed
+
+    private void btAbrirTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAbrirTarefaActionPerformed
+        Tarefa.setNewStatus(false);
+               
+        Agradecimento.setFrase("Tarefa aberta com sucesso!");
+        new Agradecimento().setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btAbrirTarefaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -345,8 +431,11 @@ public class EdicaoTarefa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JButton btAbrirTarefa;
     private javax.swing.JButton btCancelar;
+    public static javax.swing.JButton btFinalizarTarefa;
     private javax.swing.JButton btSalvar;
+    private javax.swing.ButtonGroup buttonGroup1;
     public static javax.swing.JRadioButton checkAlta;
     public static javax.swing.JRadioButton checkBaixa;
     public static javax.swing.JRadioButton checkMedia;

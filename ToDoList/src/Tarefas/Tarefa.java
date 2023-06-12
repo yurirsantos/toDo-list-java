@@ -70,4 +70,30 @@ public class Tarefa {
             
         return status;
     }
+    
+    public static void setNewTitleTarefa(String newTitulo){
+        Tarefa tarefaEditando = getListaTarefas().get(IDTarefaEdicao);
+        tarefaEditando.Titulo = newTitulo;  
+    }
+    
+    public static void setNewDescricaoTarefa(String newDescricao){
+        Tarefa tarefaEditando = getListaTarefas().get(IDTarefaEdicao);
+        tarefaEditando.Descricao = newDescricao;  
+    }
+    
+    public static void setNewDataEntregaTarefa(String newDataEntrega){
+        Tarefa tarefaEditando = getListaTarefas().get(IDTarefaEdicao);
+        tarefaEditando.DataEntrega = newDataEntrega;  
+    }
+    
+    public static void setNewPrioridade(String newPrioridade){
+        Tarefa tarefaEditando = getListaTarefas().get(IDTarefaEdicao);
+        tarefaEditando.Prioridade = newPrioridade;  
+    }
+    
+    public static void setNewStatus(boolean newStatus){
+        Tarefa tarefaEditando = getListaTarefas().get(IDTarefaEdicao);
+        tarefaEditando.Status = newStatus;  
+    }
 }
+
