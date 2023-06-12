@@ -1,7 +1,10 @@
 package Tarefas;
 
-import java.util.List;
-import javax.swing.table.DefaultTableModel;
+import static Tarefas.Agradecimento.fraseTela;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JTextField;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -29,45 +32,24 @@ public class EdicaoTarefa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaEdicaoTarefa = new javax.swing.JTable();
         menuCadastro = new javax.swing.JButton();
         menuTarefas = new javax.swing.JButton();
         btCancelar = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        checkAlta = new javax.swing.JRadioButton();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        inputDescricao = new javax.swing.JTextArea();
+        inputDataEntrega = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        checkBaixa = new javax.swing.JRadioButton();
+        jLabel4 = new javax.swing.JLabel();
+        inputTitulo = new javax.swing.JTextField();
+        checkMedia = new javax.swing.JRadioButton();
+        textStatusTarefa = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        tabelaEdicaoTarefa.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Título", "Descrição", "Data de Entrega", "Status", "Prioridade", "Acessar"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class, java.lang.String.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        tabelaEdicaoTarefa.setColumnSelectionAllowed(true);
-        tabelaEdicaoTarefa.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                tabelaEdicaoTarefaAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        jScrollPane1.setViewportView(tabelaEdicaoTarefa);
 
         menuCadastro.setText("Cadastro");
         menuCadastro.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +79,87 @@ public class EdicaoTarefa extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Título");
+
+        checkAlta.setText("Alta");
+        checkAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkAltaActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Descrição");
+
+        inputDescricao.setColumns(20);
+        inputDescricao.setRows(5);
+        inputDescricao.setToolTipText("inputDescrição");
+        inputDescricao.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                inputDescricaoAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jScrollPane1.setViewportView(inputDescricao);
+
+        inputDataEntrega.setToolTipText("inputDataEntrega");
+        inputDataEntrega.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputDataEntregaActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Data de Entrega");
+
+        checkBaixa.setText("Baixa");
+        checkBaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkBaixaActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Prioridade");
+
+        inputTitulo.setToolTipText("inputTitulo");
+        inputTitulo.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                inputTituloComponentAdded(evt);
+            }
+        });
+        inputTitulo.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                inputTituloInputMethodTextChanged(evt);
+            }
+        });
+        inputTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputTituloActionPerformed(evt);
+            }
+        });
+
+        checkMedia.setText("Média");
+        checkMedia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkMediaActionPerformed(evt);
+            }
+        });
+
+        textStatusTarefa.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        textStatusTarefa.setText("Status");
+        textStatusTarefa.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                textStatusTarefaAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -107,17 +170,37 @@ public class EdicaoTarefa extends javax.swing.JFrame {
                 .addComponent(menuTarefas)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btSalvar))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(checkBaixa)
+                                .addGap(18, 18, 18)
+                                .addComponent(checkMedia)
+                                .addGap(18, 18, 18)
+                                .addComponent(checkAlta))
+                            .addComponent(jLabel4)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btCancelar)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btSalvar))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jLabel2))
+                                        .addGap(383, 383, 383))
+                                    .addComponent(inputDataEntrega)
+                                    .addComponent(jScrollPane1)
+                                    .addComponent(inputTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(textStatusTarefa)
+                        .addGap(21, 21, 21))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,24 +209,55 @@ public class EdicaoTarefa extends javax.swing.JFrame {
                     .addComponent(menuCadastro)
                     .addComponent(menuTarefas))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(textStatusTarefa))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(inputTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(inputDataEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkBaixa)
+                    .addComponent(checkMedia)
+                    .addComponent(checkAlta))
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCancelar)
                     .addComponent(btSalvar))
-                .addGap(0, 323, Short.MAX_VALUE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
+
+        inputTitulo.getAccessibleContext().setAccessibleParent(inputTitulo);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-        
-    DefaultTableModel modeloTabela = new DefaultTableModel();
-    
+
     private void menuCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroActionPerformed
         new CadastroTarefa().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_menuCadastroActionPerformed
-
+    
+    public static void setInfoTarefa() {
+        if (inputTitulo != null || inputDescricao != null || inputDataEntrega != null) {
+            inputTitulo.setText(Tarefa.getTitleTarefa(Tarefa.IDTarefaEdicao));            
+            inputDescricao.setText(Tarefa.getDescricaoTarefa(Tarefa.IDTarefaEdicao));            
+            inputDataEntrega.setText(Tarefa.getDataEntregaTarefa(Tarefa.IDTarefaEdicao));
+            
+            textStatusTarefa.setText(Tarefa.getStatusTarefa(Tarefa.IDTarefaEdicao));
+            
+            System.out.println(Tarefa.getPrioridadeTarefa(Tarefa.IDTarefaEdicao));
+        }
+    }
+    
     private void menuTarefasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTarefasActionPerformed
         new ListaTarefas().setVisible(true);
         setVisible(false);
@@ -158,26 +272,41 @@ public class EdicaoTarefa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btSalvarActionPerformed
 
-    private void tabelaEdicaoTarefaAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tabelaEdicaoTarefaAncestorAdded
-        modeloTabela.addColumn("ID");
-        modeloTabela.addColumn("Título");
-        modeloTabela.addColumn("Descrição");    
-        modeloTabela.addColumn("Data de Entrega");
-        modeloTabela.addColumn("Prioridade");    
-        modeloTabela.addColumn("Status");
-        
-        modeloTabela.addRow(new Object[]{
-            Tarefa.getIdTarefa(Tarefa.IDTarefaEdicao()), 
-            Tarefa.getTitleTarefa(Tarefa.IDTarefaEdicao()), 
-            Tarefa.getDescricaoTarefa(Tarefa.IDTarefaEdicao()), 
-            Tarefa.getDataEntrega(Tarefa.IDTarefaEdicao()), 
-            Tarefa.getPrioridade(Tarefa.IDTarefaEdicao()), 
-            Tarefa.getStatusTarefa(Tarefa.IDTarefaEdicao()),
+    private void checkAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAltaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkAltaActionPerformed
 
-        });      
+    private void inputDataEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputDataEntregaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputDataEntregaActionPerformed
 
-        tabelaEdicaoTarefa.setModel(modeloTabela);
-    }//GEN-LAST:event_tabelaEdicaoTarefaAncestorAdded
+    private void checkBaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBaixaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkBaixaActionPerformed
+
+    private void checkMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkMediaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkMediaActionPerformed
+                                 
+    private void inputTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTituloActionPerformed
+        setInfoTarefa();
+    }//GEN-LAST:event_inputTituloActionPerformed
+
+    private void inputTituloInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_inputTituloInputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputTituloInputMethodTextChanged
+
+    private void inputTituloComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_inputTituloComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputTituloComponentAdded
+
+    private void inputDescricaoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_inputDescricaoAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputDescricaoAncestorAdded
+
+    private void textStatusTarefaAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_textStatusTarefaAncestorAdded
+
+    }//GEN-LAST:event_textStatusTarefaAncestorAdded
 
     /**
      * @param args the command line arguments
@@ -218,10 +347,20 @@ public class EdicaoTarefa extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCancelar;
     private javax.swing.JButton btSalvar;
+    public static javax.swing.JRadioButton checkAlta;
+    public static javax.swing.JRadioButton checkBaixa;
+    public static javax.swing.JRadioButton checkMedia;
+    public static javax.swing.JTextField inputDataEntrega;
+    public static javax.swing.JTextArea inputDescricao;
+    public static javax.swing.JTextField inputTitulo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton menuCadastro;
     private javax.swing.JButton menuTarefas;
-    private javax.swing.JTable tabelaEdicaoTarefa;
+    public static javax.swing.JLabel textStatusTarefa;
     // End of variables declaration//GEN-END:variables
 
 

@@ -32,7 +32,7 @@ public class ListaTarefas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableListaTarefas = new javax.swing.JTable();
         menuCadastro = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btAcessarTarefa = new javax.swing.JButton();
         inputIDTarefa = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -82,10 +82,10 @@ public class ListaTarefas extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Acessar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btAcessarTarefa.setText("Acessar");
+        btAcessarTarefa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btAcessarTarefaActionPerformed(evt);
             }
         });
 
@@ -107,7 +107,7 @@ public class ListaTarefas extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(inputIDTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(jButton1))
+                        .addComponent(btAcessarTarefa))
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -123,7 +123,7 @@ public class ListaTarefas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputIDTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(btAcessarTarefa))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addContainerGap(38, Short.MAX_VALUE))
@@ -155,8 +155,8 @@ public class ListaTarefas extends javax.swing.JFrame {
             Tarefa.getIdTarefa(i), 
             Tarefa.getTitleTarefa(i), 
             Tarefa.getDescricaoTarefa(i), 
-            Tarefa.getDataEntrega(i), 
-            Tarefa.getPrioridade(i), 
+            Tarefa.getDataEntregaTarefa(i), 
+            Tarefa.getPrioridadeTarefa(i), 
             Tarefa.getStatusTarefa(i),
             
         });      
@@ -168,12 +168,13 @@ public class ListaTarefas extends javax.swing.JFrame {
    
     }//GEN-LAST:event_tableListaTarefasAncestorAdded
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       new EdicaoTarefa().setVisible(true);
+    private void btAcessarTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAcessarTarefaActionPerformed
+        new EdicaoTarefa().setVisible(true);
         setVisible(false);
 
         Tarefa.selectIdTarefaEdicao(Integer.parseInt(inputIDTarefa.getText()));
-    }//GEN-LAST:event_jButton1ActionPerformed
+        EdicaoTarefa.setInfoTarefa();
+    }//GEN-LAST:event_btAcessarTarefaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,8 +212,8 @@ public class ListaTarefas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btAcessarTarefa;
     private javax.swing.JTextField inputIDTarefa;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

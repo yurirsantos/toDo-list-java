@@ -51,11 +51,11 @@ public class Tarefa {
         return Tarefas.get(ID).Descricao;
     }
     
-    public static String getDataEntrega(int ID){
+    public static String getDataEntregaTarefa(int ID){
         return Tarefas.get(ID).DataEntrega;
     }
     
-    public static String getPrioridade(int ID){
+    public static String getPrioridadeTarefa(int ID){
         return Tarefas.get(ID).Prioridade;
     }
     
