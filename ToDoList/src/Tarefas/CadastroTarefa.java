@@ -251,9 +251,7 @@ public class CadastroTarefa extends javax.swing.JFrame {
                             .addComponent(btCancelarCadastroTarefa)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(btCadastroTarefa)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(menuTarefas)))
+                    .addComponent(menuTarefas))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

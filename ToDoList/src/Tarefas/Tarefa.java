@@ -2,6 +2,7 @@ package Tarefas;
 
 import java.util.ArrayList;
 import java.util.List;
+
 public class Tarefa {
     private int ID;
     private String Titulo;
@@ -21,8 +22,15 @@ public class Tarefa {
     
     public static int IDTarefaEdicao;
     
-    public static void selectIdTarefaEdicao(int ID){
-        IDTarefaEdicao = ID;
+    public static boolean selectIdTarefaEdicao(int ID){  
+        try {
+            getListaTarefas().get(ID);
+            IDTarefaEdicao = ID;
+            return true;
+        } catch (Exception e) {
+            IDTarefaEdicao = -1;
+            return false;
+        }
     }
     
     public static int IDTarefaEdicao(){

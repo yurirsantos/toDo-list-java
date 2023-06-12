@@ -26,15 +26,15 @@ public class Agradecimento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btListaTarefas = new javax.swing.JButton();
+        btHome = new javax.swing.JButton();
         frase = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btListaTarefas.setText("Tarefas");
-        btListaTarefas.addActionListener(new java.awt.event.ActionListener() {
+        btHome.setText("Home");
+        btHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btListaTarefasActionPerformed(evt);
+                btHomeActionPerformed(evt);
             }
         });
 
@@ -55,34 +55,34 @@ public class Agradecimento extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(166, Short.MAX_VALUE)
-                .addComponent(btListaTarefas)
-                .addGap(154, 154, 154))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(frase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(frase, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(157, 157, 157)
+                .addComponent(btHome)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(117, Short.MAX_VALUE)
                 .addComponent(frase)
-                .addGap(86, 86, 86)
-                .addComponent(btListaTarefas)
-                .addGap(51, 51, 51))
+                .addGap(79, 79, 79)
+                .addComponent(btHome)
+                .addGap(58, 58, 58))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
     public static String fraseTela;
-
-    private void btListaTarefasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btListaTarefasActionPerformed
-        new ListaTarefas().setVisible(true);
+    
+    private void btHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btHomeActionPerformed
+        new Login().setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_btListaTarefasActionPerformed
+    }//GEN-LAST:event_btHomeActionPerformed
 
     public static void setFrase(String newFrase){
         fraseTela = newFrase;
@@ -128,7 +128,7 @@ public class Agradecimento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btListaTarefas;
+    public static javax.swing.JButton btHome;
     private javax.swing.JLabel frase;
     // End of variables declaration//GEN-END:variables
 }

@@ -75,7 +75,7 @@ public class ListaTarefas extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableListaTarefas);
 
-        menuCadastro.setText("Cadastro");
+        menuCadastro.setText("Cadastro Tarefa");
         menuCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuCadastroActionPerformed(evt);
@@ -169,11 +169,28 @@ public class ListaTarefas extends javax.swing.JFrame {
     }//GEN-LAST:event_tableListaTarefasAncestorAdded
 
     private void btAcessarTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAcessarTarefaActionPerformed
-        new EdicaoTarefa().setVisible(true);
-        setVisible(false);
-
-        Tarefa.selectIdTarefaEdicao(Integer.parseInt(inputIDTarefa.getText()));
-        EdicaoTarefa.setInfoTarefa();
+        int IDSelect = Integer.parseInt(inputIDTarefa.getText());
+        
+        if(IDSelect >= 0){
+            Boolean testeIdTarefa = Tarefa.selectIdTarefaEdicao(IDSelect);
+            
+            System.out.println(testeIdTarefa);
+            
+            if(testeIdTarefa){
+                new EdicaoTarefa().setVisible(true);
+                setVisible(false);
+                EdicaoTarefa.setInfoTarefa();
+            }else {
+                Agradecimento.setFrase("Informe um ID existente!!");
+                new Agradecimento().setVisible(true);
+                setVisible(false);
+            }
+            
+        }else{
+            Agradecimento.setFrase("Informe um ID para consulta!!");
+            new Agradecimento().setVisible(true);
+            setVisible(false);
+        }
     }//GEN-LAST:event_btAcessarTarefaActionPerformed
 
     /**
