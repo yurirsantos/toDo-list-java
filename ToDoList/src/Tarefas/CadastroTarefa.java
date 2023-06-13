@@ -1,6 +1,7 @@
 package Tarefas;
 
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -56,6 +57,7 @@ public class CadastroTarefa extends javax.swing.JFrame {
         jMenu15 = new javax.swing.JMenu();
         jMenu16 = new javax.swing.JMenu();
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
         btCancelarCadastroTarefa = new javax.swing.JButton();
         btCadastroTarefa = new javax.swing.JButton();
         inputTitulo = new javax.swing.JTextField();
@@ -63,14 +65,15 @@ public class CadastroTarefa extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         inputDescricao = new javax.swing.JTextArea();
-        inputDataEntrega = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        menuTarefas = new javax.swing.JButton();
         checkBaixa = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
         checkMedia = new javax.swing.JRadioButton();
         checkAlta = new javax.swing.JRadioButton();
+        jLabel5 = new javax.swing.JLabel();
+        inputDataEntrega = new javax.swing.JFormattedTextField();
+        listaUsuarios = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         jRadioButtonMenuItem1.setSelected(true);
@@ -124,6 +127,9 @@ public class CadastroTarefa extends javax.swing.JFrame {
         jMenu16.setText("Edit");
         jMenuBar9.add(jMenu16);
 
+        jRadioButtonMenuItem2.setSelected(true);
+        jRadioButtonMenuItem2.setText("jRadioButtonMenuItem2");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CadastroTarefa");
 
@@ -171,21 +177,7 @@ public class CadastroTarefa extends javax.swing.JFrame {
         inputDescricao.setToolTipText("inputDescrição");
         jScrollPane1.setViewportView(inputDescricao);
 
-        inputDataEntrega.setToolTipText("inputDataEntrega");
-        inputDataEntrega.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputDataEntregaActionPerformed(evt);
-            }
-        });
-
         jLabel3.setText("Data de Entrega");
-
-        menuTarefas.setText("Tarefas");
-        menuTarefas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuTarefasActionPerformed(evt);
-            }
-        });
 
         buttonGroup1.add(checkBaixa);
         checkBaixa.setText("Baixa");
@@ -212,6 +204,17 @@ public class CadastroTarefa extends javax.swing.JFrame {
                 checkAltaActionPerformed(evt);
             }
         });
+
+        jLabel5.setText("Usuário Responsável");
+
+        inputDataEntrega.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+
+        listaUsuarios.setName(""); // NOI18N
+        listaUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaUsuariosActionPerformed(evt);
+            }
+        });
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -220,45 +223,47 @@ public class CadastroTarefa extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel2)
-                                        .addComponent(jLabel1))
-                                    .addGap(383, 383, 383))
-                                .addComponent(inputDataEntrega)
-                                .addComponent(jScrollPane1)
-                                .addComponent(inputTitulo)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(15, 15, 15)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(checkBaixa)
-                            .addGap(18, 18, 18)
-                            .addComponent(checkMedia)
-                            .addGap(18, 18, 18)
-                            .addComponent(checkAlta))
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel4))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(103, 103, 103)
-                            .addComponent(btCancelarCadastroTarefa)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btCadastroTarefa)))
-                    .addComponent(menuTarefas))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1))
+                                .addGap(383, 383, 383))
+                            .addComponent(jScrollPane1)
+                            .addComponent(inputTitulo)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(checkBaixa)
+                        .addGap(18, 18, 18)
+                        .addComponent(checkMedia)
+                        .addGap(18, 18, 18)
+                        .addComponent(checkAlta))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(inputDataEntrega, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(listaUsuarios, javax.swing.GroupLayout.Alignment.LEADING, 0, 489, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(btCancelarCadastroTarefa)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btCadastroTarefa)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(menuTarefas)
-                .addGap(28, 28, 28)
+                .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(inputTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -277,23 +282,33 @@ public class CadastroTarefa extends javax.swing.JFrame {
                     .addComponent(checkBaixa)
                     .addComponent(checkMedia)
                     .addComponent(checkAlta))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addComponent(listaUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCadastroTarefa)
                     .addComponent(btCancelarCadastroTarefa))
-                .addGap(33, 33, 33))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   
     private static Tarefa tarefa;
     
     public static void setTarefas(Tarefa newTarefa){
         tarefa.setListaTarefas(newTarefa);
+    }
+    
+    public static void setListaUsuarios(){
+        for(int i = 0; i < Usuario.getListaUsuarios().size(); i++){
+            listaUsuarios.addItem(Usuario.getNomeUsuario(i));
+        }    
+        
     }
    
     private void btCancelarCadastroTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarCadastroTarefaActionPerformed
@@ -305,16 +320,13 @@ public class CadastroTarefa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputTituloActionPerformed
 
-    private void inputDataEntregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputDataEntregaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputDataEntregaActionPerformed
-
     private void btCadastroTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroTarefaActionPerformed
         String Titulo = inputTitulo.getText();        
         String Descricao = inputDescricao.getText();
         String DataEntrega = inputDataEntrega.getText();
         String Prioridade = "";
         Boolean Status = false;
+        int IDUSer = listaUsuarios.getSelectedIndex();
         
         if(checkAlta.isSelected()){
             Prioridade = "Alta";
@@ -326,20 +338,16 @@ public class CadastroTarefa extends javax.swing.JFrame {
         
         int ID = tarefa.Tarefas.size();
         
-        Tarefa TarefaCriada = new Tarefa(ID, Titulo, Descricao, DataEntrega, Prioridade, Status);
+        Tarefa TarefaCriada = new Tarefa(ID, Titulo, Descricao, DataEntrega, Prioridade, Status, IDUSer);
         setTarefas(TarefaCriada);
         
-        Agradecimento.setFrase("Tarefa cadastrada com sucesso!");
-        
-        new Agradecimento().setVisible(true);
-        setVisible(false);
+        JOptionPane.showMessageDialog(null, "Tarefa cadastrada com sucesso!");
+        if(JOptionPane.YES_OPTION == 0){
+                new ListaTarefas().setVisible(true);
+                setVisible(false);
+        }
         
     }//GEN-LAST:event_btCadastroTarefaActionPerformed
-
-    private void menuTarefasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTarefasActionPerformed
-        new ListaTarefas().setVisible(true);  
-        setVisible(false);   
-    }//GEN-LAST:event_menuTarefasActionPerformed
 
     private void checkBaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBaixaActionPerformed
         // TODO add your handling code here:
@@ -360,6 +368,10 @@ public class CadastroTarefa extends javax.swing.JFrame {
     private void inputTituloInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_inputTituloInputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_inputTituloInputMethodTextChanged
+
+    private void listaUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaUsuariosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaUsuariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -403,13 +415,14 @@ public class CadastroTarefa extends javax.swing.JFrame {
     private javax.swing.JRadioButton checkAlta;
     private javax.swing.JRadioButton checkBaixa;
     private javax.swing.JRadioButton checkMedia;
-    private javax.swing.JTextField inputDataEntrega;
+    private javax.swing.JFormattedTextField inputDataEntrega;
     private javax.swing.JTextArea inputDescricao;
     public javax.swing.JTextField inputTitulo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;
@@ -436,8 +449,9 @@ public class CadastroTarefa extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar8;
     private javax.swing.JMenuBar jMenuBar9;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JButton menuTarefas;
+    private static javax.swing.JComboBox<Object> listaUsuarios;
     // End of variables declaration//GEN-END:variables
 }

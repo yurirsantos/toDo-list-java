@@ -10,14 +10,16 @@ public class Tarefa {
     private String DataEntrega;
     private String Prioridade;
     private Boolean Status;
+    private int IDUser;
     
-    public Tarefa(int ID, String Titulo, String Descricao, String DataEntrega, String Prioridade, Boolean Status){
+    public Tarefa(int ID, String Titulo, String Descricao, String DataEntrega, String Prioridade, Boolean Status, int IDUser){
         this.ID = ID;
         this.Titulo = Titulo;        
         this.Descricao = Descricao;
         this.DataEntrega = DataEntrega;
         this.Prioridade = Prioridade;
         this.Status = Status;
+        this.IDUser = IDUser;
     }
     
     public static int IDTarefaEdicao;
@@ -47,36 +49,44 @@ public class Tarefa {
         Tarefas.add(newTarefa);
     }
     
-    public static String getTitleTarefa(int ID){
-        return Tarefas.get(ID).Titulo;
+    public static String getTitleTarefa(int ID, List<Tarefa> Lista){
+        return Lista.get(ID).Titulo;
     }
     
     public static int getIdTarefa(int ID){
         return Tarefas.get(ID).ID;
     }
     
-    public static String getDescricaoTarefa(int ID){
-        return Tarefas.get(ID).Descricao;
+    public static String getDescricaoTarefa(int ID, List<Tarefa> Lista){
+        return Lista.get(ID).Descricao;
     }
     
-    public static String getDataEntregaTarefa(int ID){
-        return Tarefas.get(ID).DataEntrega;
+    public static String getDataEntregaTarefa(int ID, List<Tarefa> Lista){
+        return Lista.get(ID).DataEntrega;
     }
     
-    public static String getPrioridadeTarefa(int ID){
-        return Tarefas.get(ID).Prioridade;
+    public static String getPrioridadeTarefa(int ID, List<Tarefa> Lista){
+        return Lista.get(ID).Prioridade;
     }
     
-    public static String getStatusTarefa(int ID){
+    public static String getStatusTarefa(int ID, List<Tarefa> Lista){
         String status;
         
-        if(Tarefas.get(ID).Status){
+        if(Lista.get(ID).Status){
             status = "Finalizado";
         }else {
             status = "Pendente";
         }
             
         return status;
+    }
+    
+    public static int getIdUsuarioResponsavel(int ID, List<Tarefa> Lista){
+        return Lista.get(ID).IDUser;
+    }
+    
+    public static String getUsuarioResponsavel(int ID){
+        return Usuario.getNomeUsuario(ID);
     }
     
     public static void setNewTitleTarefa(String newTitulo){
@@ -102,6 +112,18 @@ public class Tarefa {
     public static void setNewStatus(boolean newStatus){
         Tarefa tarefaEditando = getListaTarefas().get(IDTarefaEdicao);
         tarefaEditando.Status = newStatus;  
+    }
+    
+    public static List<Tarefa> getTarefaUsuarioEspecifico(int IDUsuario){
+        List<Tarefa> listaTarefaUsuario = new ArrayList<> ();
+        
+        for(int i = 0; i < getListaTarefas().size(); i++){
+            if(getListaTarefas().get(i).IDUser == IDUsuario){
+                listaTarefaUsuario.add(getListaTarefas().get(i));
+            }
+        }
+        
+        return listaTarefaUsuario;
     }
 }
 

@@ -36,6 +36,9 @@ public class Usuario {
     public static void registerUsuarioPadrao(){
         Usuario usuarioPadrao = new Usuario(0, "Yuri Rhuan dos Santos", "yuri@gmail.com", "Administrador", "1234", true);
         ListaUsuarios.add(usuarioPadrao);
+        
+        Usuario usuarioPadrao2 = new Usuario(1, "Kauane Policena Artini", "kauane@gmail.com", "Normal", "1234", true);
+        ListaUsuarios.add(usuarioPadrao2);
     }
 
     public static List<Usuario> getListaUsuarios(){
@@ -70,4 +73,11 @@ public class Usuario {
         return loginSelect.ID;
     }
     
+    public static int getIDUsuario(int ID){
+        return ListaUsuarios.get(ID).ID;
+    }
+    
+    public static String getNomeUsuario(int ID){
+        return ListaUsuarios.get(ID).nome;
+    }
 }

@@ -1,5 +1,7 @@
 package Tarefas;
 
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -204,7 +206,7 @@ public class EdicaoTarefa extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(textStatusTarefa))
@@ -233,7 +235,7 @@ public class EdicaoTarefa extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCancelar)
                     .addComponent(btSalvar))
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
 
         inputTitulo.getAccessibleContext().setAccessibleParent(inputTitulo);
@@ -243,13 +245,12 @@ public class EdicaoTarefa extends javax.swing.JFrame {
     
     public static void setInfoTarefa() {
         if (inputTitulo != null || inputDescricao != null || inputDataEntrega != null) {
-            inputTitulo.setText(Tarefa.getTitleTarefa(Tarefa.IDTarefaEdicao));            
-            inputDescricao.setText(Tarefa.getDescricaoTarefa(Tarefa.IDTarefaEdicao));            
-            inputDataEntrega.setText(Tarefa.getDataEntregaTarefa(Tarefa.IDTarefaEdicao));
+            inputTitulo.setText(Tarefa.getTitleTarefa(Tarefa.IDTarefaEdicao, Tarefa.getListaTarefas()));            
+            inputDescricao.setText(Tarefa.getDescricaoTarefa(Tarefa.IDTarefaEdicao, Tarefa.getListaTarefas()));            
+            inputDataEntrega.setText(Tarefa.getDataEntregaTarefa(Tarefa.IDTarefaEdicao, Tarefa.getListaTarefas()));
+            textStatusTarefa.setText(Tarefa.getStatusTarefa(Tarefa.IDTarefaEdicao, Tarefa.getListaTarefas()));
             
-            textStatusTarefa.setText(Tarefa.getStatusTarefa(Tarefa.IDTarefaEdicao));
-            
-            if("Finalizado".equals(Tarefa.getStatusTarefa(Tarefa.IDTarefaEdicao))){
+            if("Finalizado".equals(Tarefa.getStatusTarefa(Tarefa.IDTarefaEdicao, Tarefa.getListaTarefas()))){
                 btFinalizarTarefa.setVisible(false);                
                 btAbrirTarefa.setVisible(true);
             }else {                
@@ -257,7 +258,7 @@ public class EdicaoTarefa extends javax.swing.JFrame {
                 btAbrirTarefa.setVisible(false);
             }
                    
-            switch (Tarefa.getPrioridadeTarefa(Tarefa.IDTarefaEdicao)) {
+            switch (Tarefa.getPrioridadeTarefa(Tarefa.IDTarefaEdicao, Tarefa.getListaTarefas())) {
                 
             case "Alta":
                 checkAlta.setSelected(true);
@@ -297,9 +298,12 @@ public class EdicaoTarefa extends javax.swing.JFrame {
        
        Tarefa.setNewPrioridade(newPrioridade);
        
-       Agradecimento.setFrase("Tarefa atualizada com sucesso!");
-       new Agradecimento().setVisible(true);
-       setVisible(false);
+        JOptionPane.showMessageDialog(null, "Tarefa atualizada");
+        
+        if(JOptionPane.YES_OPTION == 0){
+            new ListaTarefas().setVisible(true);
+            setVisible(false);
+        }
 
     }//GEN-LAST:event_btSalvarActionPerformed
 
@@ -341,18 +345,24 @@ public class EdicaoTarefa extends javax.swing.JFrame {
 
     private void btFinalizarTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFinalizarTarefaActionPerformed
         Tarefa.setNewStatus(true);
-               
-        Agradecimento.setFrase("Tarefa finalizada com sucesso!");
-        new Agradecimento().setVisible(true);
-        setVisible(false);
+        
+        JOptionPane.showMessageDialog(null, "Tarefa finalizada com sucesso!");
+        
+        if(JOptionPane.YES_OPTION == 0){
+            new ListaTarefas().setVisible(true);
+            setVisible(false);
+        }
     }//GEN-LAST:event_btFinalizarTarefaActionPerformed
 
     private void btAbrirTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAbrirTarefaActionPerformed
         Tarefa.setNewStatus(false);
-               
-        Agradecimento.setFrase("Tarefa aberta com sucesso!");
-        new Agradecimento().setVisible(true);
-        setVisible(false);
+        
+        JOptionPane.showMessageDialog(null, "Tarefa aberta com sucesso!");
+        
+        if(JOptionPane.YES_OPTION == 0){
+            new ListaTarefas().setVisible(true);
+            setVisible(false);
+        }
     }//GEN-LAST:event_btAbrirTarefaActionPerformed
 
     /**

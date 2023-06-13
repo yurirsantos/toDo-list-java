@@ -286,14 +286,14 @@ public class CadastroUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Usuário cadastrado(a)!");
             
             if(JOptionPane.YES_OPTION == 0){
-                new Login().setVisible(true);
+                new Home().setVisible(true);
                 setVisible(false);
             }
             
-        }else {
-            btCadastro.setVisible(false);
-            JOptionPane.showMessageDialog(null, "Senhas diferentes!");
-        }
+            }else {
+                btCadastro.setVisible(false);
+                JOptionPane.showMessageDialog(null, "Senhas diferentes!");
+            }
     }//GEN-LAST:event_btCadastroTarefaActionPerformed
 
     private void inputLoginComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_inputLoginComponentAdded

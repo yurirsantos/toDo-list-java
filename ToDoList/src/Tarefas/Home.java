@@ -97,17 +97,19 @@ public class Home extends javax.swing.JFrame {
         if(Usuario.getTipoUsuario().equals("Normal")){
             menuCadastroTarefa.setVisible(false);
             menuCadastroUsuario.setVisible(false);
-        }
-       
+        }  
     }
     
     private void menuCadastroTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroTarefaActionPerformed
         new CadastroTarefa().setVisible(true);
+        CadastroTarefa.setListaUsuarios();
         setVisible(false);
     }//GEN-LAST:event_menuCadastroTarefaActionPerformed
 
     private void menuTarefasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTarefasActionPerformed
         new ListaTarefas().setVisible(true);
+        ListaTarefas.getUsuarioLogin();
+        
         setVisible(false);
     }//GEN-LAST:event_menuTarefasActionPerformed
 

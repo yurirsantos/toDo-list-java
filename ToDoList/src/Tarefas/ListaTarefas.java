@@ -5,6 +5,7 @@
 package Tarefas;
 
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -31,12 +32,13 @@ public class ListaTarefas extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tableListaTarefas = new javax.swing.JTable();
-        menuCadastro = new javax.swing.JButton();
+        menuCadastroTarefa = new javax.swing.JButton();
         btAcessarTarefa = new javax.swing.JButton();
         inputIDTarefa = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         menuHome = new javax.swing.JButton();
+        menuCadastroUsuário = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,10 +78,10 @@ public class ListaTarefas extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableListaTarefas);
 
-        menuCadastro.setText("Cadastro Tarefa");
-        menuCadastro.addActionListener(new java.awt.event.ActionListener() {
+        menuCadastroTarefa.setText("Cadastro Tarefa");
+        menuCadastroTarefa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuCadastroActionPerformed(evt);
+                menuCadastroTarefaActionPerformed(evt);
             }
         });
 
@@ -101,6 +103,13 @@ public class ListaTarefas extends javax.swing.JFrame {
             }
         });
 
+        menuCadastroUsuário.setText("Cadastro Usuário");
+        menuCadastroUsuário.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCadastroUsuárioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -117,16 +126,19 @@ public class ListaTarefas extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(menuHome)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(menuCadastroTarefa)
                         .addGap(18, 18, 18)
-                        .addComponent(menuCadastro)))
+                        .addComponent(menuCadastroUsuário)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(menuCadastro)
-                    .addComponent(menuHome))
+                    .addComponent(menuCadastroTarefa)
+                    .addComponent(menuHome)
+                    .addComponent(menuCadastroUsuário))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -143,39 +155,50 @@ public class ListaTarefas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
    
-    List<Tarefa> listaTarefas = Tarefa.getListaTarefas();
+    List<Tarefa> listaTarefas;
     DefaultTableModel modeloTabela = new DefaultTableModel();
     
-    private void menuCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroActionPerformed
+    private void menuCadastroTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroTarefaActionPerformed
         new CadastroTarefa().setVisible(true);  
+        CadastroTarefa.setListaUsuarios();
         setVisible(false);   
-    }//GEN-LAST:event_menuCadastroActionPerformed
+    }//GEN-LAST:event_menuCadastroTarefaActionPerformed
 
     private void tableListaTarefasAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tableListaTarefasAncestorAdded
-    modeloTabela.addColumn("ID");
-    modeloTabela.addColumn("Título");
-    modeloTabela.addColumn("Descrição");    
-    modeloTabela.addColumn("Data de Entrega");
-    modeloTabela.addColumn("Prioridade");    
-    modeloTabela.addColumn("Status");
-    
-    int i = 0;
-    
-    for (Tarefa tarefa : listaTarefas) {
-        modeloTabela.addRow(new Object[]{
-            Tarefa.getIdTarefa(i), 
-            Tarefa.getTitleTarefa(i), 
-            Tarefa.getDescricaoTarefa(i), 
-            Tarefa.getDataEntregaTarefa(i), 
-            Tarefa.getPrioridadeTarefa(i), 
-            Tarefa.getStatusTarefa(i),
-            
-        });      
-        
-        i = i + 1;
-    }
+        if(Usuario.getTipoUsuario().equals("Normal")){
+            listaTarefas = Tarefa.getTarefaUsuarioEspecifico(Usuario.getLoginUsuarioId());
+        } else {
+            listaTarefas = Tarefa.getListaTarefas();
 
-    tableListaTarefas.setModel(modeloTabela);
+        }
+        
+        modeloTabela.addColumn("ID");
+        modeloTabela.addColumn("Título");
+        modeloTabela.addColumn("Descrição");    
+        modeloTabela.addColumn("Data de Entrega");
+        modeloTabela.addColumn("Prioridade");      
+        modeloTabela.addColumn("Responsável");    
+        modeloTabela.addColumn("Status");
+
+        int i = 0;
+        
+        System.out.println("listaTarefas: " + listaTarefas);
+
+        for (Tarefa tarefa : listaTarefas) {
+            modeloTabela.addRow(new Object[]{
+                Tarefa.getIdTarefa(i), 
+                Tarefa.getTitleTarefa(i, listaTarefas), 
+                Tarefa.getDescricaoTarefa(i, listaTarefas), 
+                Tarefa.getDataEntregaTarefa(i, listaTarefas), 
+                Tarefa.getPrioridadeTarefa(i, listaTarefas), 
+                Tarefa.getUsuarioResponsavel(Tarefa.getIdUsuarioResponsavel(i, listaTarefas)),
+                Tarefa.getStatusTarefa(i, listaTarefas),
+            });      
+
+            i = i + 1;
+        }
+
+        tableListaTarefas.setModel(modeloTabela);
    
     }//GEN-LAST:event_tableListaTarefasAncestorAdded
 
@@ -193,15 +216,21 @@ public class ListaTarefas extends javax.swing.JFrame {
                 
                 EdicaoTarefa.setInfoTarefa();
             }else {
-                Agradecimento.setFrase("Informe um ID existente!!");
-                new Agradecimento().setVisible(true);
-                setVisible(false);
+                JOptionPane.showMessageDialog(null, "Informe um ID existente!");
+        
+                if(JOptionPane.YES_OPTION == 0){
+                    new ListaTarefas().setVisible(true);
+                    setVisible(false);
+                }
             }
             
         }else{
-            Agradecimento.setFrase("Informe um ID para consulta!!");
-            new Agradecimento().setVisible(true);
-            setVisible(false);
+            JOptionPane.showMessageDialog(null, "Informe um ID para consulta!");
+        
+            if(JOptionPane.YES_OPTION == 0){
+                new ListaTarefas().setVisible(true);
+                setVisible(false);
+            }
         }
     }//GEN-LAST:event_btAcessarTarefaActionPerformed
 
@@ -210,6 +239,17 @@ public class ListaTarefas extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_menuHomeActionPerformed
 
+    private void menuCadastroUsuárioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroUsuárioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuCadastroUsuárioActionPerformed
+
+    public static void getUsuarioLogin(){
+        if(Usuario.getTipoUsuario().equals("Normal")){
+            menuCadastroTarefa.setVisible(false);
+            menuCadastroUsuário.setVisible(false);
+        }  
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -251,7 +291,8 @@ public class ListaTarefas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton menuCadastro;
+    private static javax.swing.JButton menuCadastroTarefa;
+    private static javax.swing.JButton menuCadastroUsuário;
     private javax.swing.JButton menuHome;
     private javax.swing.JTable tableListaTarefas;
     // End of variables declaration//GEN-END:variables
