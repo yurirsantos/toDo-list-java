@@ -99,4 +99,16 @@ public class Usuario {
     public static String getNomeUsuario(int ID){
         return ListaUsuarios.get(ID).nome;
     }
+    
+    public static void setNewNome(String newNome, int IDUsuario){
+        ListaUsuarios.get(IDUsuario).nome = newNome;
+    }
+    
+    public static void setNewEmail(String newEmail, int IDUsuario){
+        ListaUsuarios.get(IDUsuario).login = newEmail;
+    }
+    
+    public static void setNewSenha(String newSenha, int IDUsuario){
+        ListaUsuarios.get(IDUsuario).senha = newSenha;
+    }
 }

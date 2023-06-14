@@ -49,12 +49,15 @@ public class Home extends javax.swing.JFrame {
         labelUsuarios = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelaListaTarefas = new javax.swing.JTable();
-        jLabel6 = new javax.swing.JLabel();
+        nomeUsuario = new javax.swing.JLabel();
         totalTaredasNumero = new javax.swing.JLabel();
         barraTotalTarefas = new javax.swing.JProgressBar();
         labelTotal = new javax.swing.JLabel();
         barraTotalUsuarios = new javax.swing.JProgressBar();
         menuListaUsuarios = new javax.swing.JButton();
+        menuPerfil = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -73,7 +76,6 @@ public class Home extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFont(new java.awt.Font("aakar", 1, 18)); // NOI18N
         setMinimumSize(new java.awt.Dimension(500, 300));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         menuCadastroTarefa.setText("Cadastro Tarefa");
         menuCadastroTarefa.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +83,6 @@ public class Home extends javax.swing.JFrame {
                 menuCadastroTarefaActionPerformed(evt);
             }
         });
-        getContentPane().add(menuCadastroTarefa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         menuTarefas.setText("Tarefas");
         menuTarefas.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +90,6 @@ public class Home extends javax.swing.JFrame {
                 menuTarefasActionPerformed(evt);
             }
         });
-        getContentPane().add(menuTarefas, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
 
         menuCadastroUsuario.setText("Cadastro Usuário");
         menuCadastroUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +97,6 @@ public class Home extends javax.swing.JFrame {
                 menuCadastroUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(menuCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
         btSair.setText("Sair");
         btSair.addActionListener(new java.awt.event.ActionListener() {
@@ -105,7 +104,6 @@ public class Home extends javax.swing.JFrame {
                 btSairActionPerformed(evt);
             }
         });
-        getContentPane().add(btSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 560, -1, -1));
 
         barraTotalConcluidas.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
@@ -116,20 +114,15 @@ public class Home extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        getContentPane().add(barraTotalConcluidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, 12));
 
         labelTarefas.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         labelTarefas.setText("Tarefas");
-        getContentPane().add(labelTarefas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
         labelConcluidas.setText("Concluídas");
-        getContentPane().add(labelConcluidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
         totalConcluidasNumero.setText("1");
-        getContentPane().add(totalConcluidasNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, -1, -1));
 
         totalPendentesNumero.setText("2");
-        getContentPane().add(totalPendentesNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, -1, -1));
 
         barraTotalPendentes.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
@@ -140,21 +133,15 @@ public class Home extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        getContentPane().add(barraTotalPendentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, 12));
 
         labelPendentes.setText("Pendentes");
-        getContentPane().add(labelPendentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
-        getContentPane().add(separador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 610, 12));
 
         separador2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(separador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 13, 190));
 
         totalUsuariosNumero.setText("Total Usuários");
-        getContentPane().add(totalUsuariosNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, -1, -1));
 
         labelUsuarios.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         labelUsuarios.setText("Usuários");
-        getContentPane().add(labelUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, -1, -1));
 
         tabelaListaTarefas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -178,14 +165,10 @@ public class Home extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tabelaListaTarefas);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 542, 214));
-
-        jLabel6.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-        jLabel6.setText("Minhas Tarefas");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
+        nomeUsuario.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        nomeUsuario.setText("nome");
 
         totalTaredasNumero.setText("2");
-        getContentPane().add(totalTaredasNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, -1));
 
         barraTotalTarefas.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
@@ -196,10 +179,8 @@ public class Home extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        getContentPane().add(barraTotalTarefas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, 12));
 
         labelTotal.setText("Total");
-        getContentPane().add(labelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
 
         barraTotalUsuarios.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
@@ -210,7 +191,6 @@ public class Home extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        getContentPane().add(barraTotalUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, -1, 12));
 
         menuListaUsuarios.setText("Usuários");
         menuListaUsuarios.addActionListener(new java.awt.event.ActionListener() {
@@ -218,7 +198,135 @@ public class Home extends javax.swing.JFrame {
                 menuListaUsuariosActionPerformed(evt);
             }
         });
-        getContentPane().add(menuListaUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
+
+        menuPerfil.setText("Perfil");
+        menuPerfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuPerfilActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel7.setText("Minhas Tarefas");
+
+        jLabel8.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel8.setText("Olá,");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(227, 227, 227)
+                                .addComponent(btSair))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(11, 11, 11)
+                                .addComponent(nomeUsuario))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(jLabel7))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(menuPerfil)
+                        .addGap(8, 8, 8)
+                        .addComponent(menuCadastroTarefa)
+                        .addGap(4, 4, 4)
+                        .addComponent(menuCadastroUsuario)
+                        .addGap(6, 6, 6)
+                        .addComponent(menuTarefas)
+                        .addGap(10, 10, 10)
+                        .addComponent(menuListaUsuarios))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(separador1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelTarefas)
+                                    .addComponent(labelConcluidas)
+                                    .addComponent(barraTotalConcluidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelPendentes)
+                                    .addComponent(barraTotalPendentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelTotal)
+                                    .addComponent(barraTotalTarefas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(14, 14, 14)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(totalConcluidasNumero)
+                                    .addComponent(totalPendentesNumero)
+                                    .addComponent(totalTaredasNumero))
+                                .addGap(12, 12, 12)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(separador2, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(labelUsuarios)
+                                            .addComponent(barraTotalUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(4, 4, 4)
+                                .addComponent(totalUsuariosNumero)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(menuPerfil)
+                    .addComponent(menuCadastroTarefa)
+                    .addComponent(menuCadastroUsuario)
+                    .addComponent(menuTarefas)
+                    .addComponent(menuListaUsuarios))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(nomeUsuario))
+                .addGap(12, 12, 12)
+                .addComponent(jLabel7)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btSair)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelTarefas)
+                        .addGap(8, 8, 8)
+                        .addComponent(labelConcluidas)
+                        .addGap(12, 12, 12)
+                        .addComponent(barraTotalConcluidas, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(labelPendentes)
+                        .addGap(12, 12, 12)
+                        .addComponent(barraTotalPendentes, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(labelTotal)
+                        .addGap(12, 12, 12)
+                        .addComponent(barraTotalTarefas, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(totalConcluidasNumero)
+                        .addGap(42, 42, 42)
+                        .addComponent(totalPendentesNumero)
+                        .addGap(42, 42, 42)
+                        .addComponent(totalTaredasNumero))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelUsuarios)
+                        .addGap(8, 8, 8)
+                        .addComponent(barraTotalUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(separador2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(totalUsuariosNumero)))
+                .addGap(8, 8, 8)
+                .addComponent(separador1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -261,6 +369,8 @@ public class Home extends javax.swing.JFrame {
         
         barraTotalUsuarios.setValue(Usuario.getListaUsuarios().size());
         totalUsuariosNumero.setText(Integer.toString(Usuario.getListaUsuarios().size()));
+        
+        nomeUsuario.setText(Usuario.getNomeUsuario(Usuario.getLoginUsuarioId()));
     }
     
     private void menuCadastroTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroTarefaActionPerformed
@@ -338,6 +448,12 @@ public class Home extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_menuListaUsuariosActionPerformed
 
+    private void menuPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPerfilActionPerformed
+        new Perfil().setVisible(true);
+        Perfil.setInfoUsuario();
+        setVisible(false);
+    }//GEN-LAST:event_menuPerfilActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -381,7 +497,8 @@ public class Home extends javax.swing.JFrame {
     private static javax.swing.JProgressBar barraTotalTarefas;
     private static javax.swing.JProgressBar barraTotalUsuarios;
     private javax.swing.JButton btSair;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -394,7 +511,9 @@ public class Home extends javax.swing.JFrame {
     private static javax.swing.JButton menuCadastroTarefa;
     private static javax.swing.JButton menuCadastroUsuario;
     private static javax.swing.JButton menuListaUsuarios;
+    private javax.swing.JButton menuPerfil;
     private static javax.swing.JButton menuTarefas;
+    private static javax.swing.JLabel nomeUsuario;
     private static javax.swing.JSeparator separador1;
     private static javax.swing.JSeparator separador2;
     private javax.swing.JTable tabelaListaTarefas;
