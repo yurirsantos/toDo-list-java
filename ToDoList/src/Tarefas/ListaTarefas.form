@@ -38,7 +38,7 @@
                       <Component id="menuHome" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="menuCadastroTarefa" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="menuCadastroUsuário" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>

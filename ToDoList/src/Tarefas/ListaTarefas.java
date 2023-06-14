@@ -128,7 +128,7 @@ public class ListaTarefas extends javax.swing.JFrame {
                         .addComponent(menuHome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(menuCadastroTarefa)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(menuCadastroUsuário)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -181,8 +181,6 @@ public class ListaTarefas extends javax.swing.JFrame {
         modeloTabela.addColumn("Status");
 
         int i = 0;
-        
-        System.out.println("listaTarefas: " + listaTarefas);
 
         for (Tarefa tarefa : listaTarefas) {
             modeloTabela.addRow(new Object[]{
@@ -207,8 +205,6 @@ public class ListaTarefas extends javax.swing.JFrame {
         
         if(IDSelect >= 0){
             Boolean testeIdTarefa = Tarefa.selectIdTarefaEdicao(IDSelect);
-            
-            System.out.println(testeIdTarefa);
             
             if(testeIdTarefa){
                 new EdicaoTarefa().setVisible(true);
@@ -237,6 +233,7 @@ public class ListaTarefas extends javax.swing.JFrame {
     private void menuHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuHomeActionPerformed
         new Home().setVisible(true);
         setVisible(false);
+        Home.getUsuarioLogin();
     }//GEN-LAST:event_menuHomeActionPerformed
 
     private void menuCadastroUsuárioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroUsuárioActionPerformed

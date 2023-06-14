@@ -23,6 +23,9 @@ public class Tarefa {
     }
     
     public static int IDTarefaEdicao;
+    public static int TotalTarefasConcluidas;
+    public static int TotalTarefasPendentes;
+    public static int[] TotaisTarefas = new int[3];
     
     public static boolean selectIdTarefaEdicao(int ID){  
         try {
@@ -124,6 +127,27 @@ public class Tarefa {
         }
         
         return listaTarefaUsuario;
+    }
+    
+    public static void setTotalTarefas(){
+        TotalTarefasConcluidas = 0;
+        TotalTarefasPendentes = 0;
+        
+        for(int i = 0; i < Tarefas.size(); i++){
+            if(Tarefas.get(i).Status){
+                TotalTarefasConcluidas++;
+            }else{
+                TotalTarefasPendentes++;
+            }
+        }   
+        
+        TotaisTarefas[0] = TotalTarefasConcluidas;
+        TotaisTarefas[1] = TotalTarefasPendentes;
+        TotaisTarefas[2] = Tarefas.size();
+    }
+    
+    public static int[] getTotalTarefas(){
+        return TotaisTarefas;
     }
 }
 

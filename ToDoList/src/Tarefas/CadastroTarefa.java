@@ -308,12 +308,12 @@ public class CadastroTarefa extends javax.swing.JFrame {
         for(int i = 0; i < Usuario.getListaUsuarios().size(); i++){
             listaUsuarios.addItem(Usuario.getNomeUsuario(i));
         }    
-        
     }
    
     private void btCancelarCadastroTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarCadastroTarefaActionPerformed
-        new ListaTarefas().setVisible(true);
+        new Home().setVisible(true);
         setVisible(false);
+        Home.getUsuarioLogin();
     }//GEN-LAST:event_btCancelarCadastroTarefaActionPerformed
 
     private void inputTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTituloActionPerformed
@@ -343,8 +343,10 @@ public class CadastroTarefa extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(null, "Tarefa cadastrada com sucesso!");
         if(JOptionPane.YES_OPTION == 0){
-                new ListaTarefas().setVisible(true);
-                setVisible(false);
+            new ListaTarefas().setVisible(true);
+            setVisible(false);
+            Tarefa.setTotalTarefas();
+            Home.getUsuarioLogin();
         }
         
     }//GEN-LAST:event_btCadastroTarefaActionPerformed

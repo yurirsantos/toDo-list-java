@@ -4,6 +4,7 @@
  */
 package Tarefas;
 
+import static Tarefas.Home.getUsuarioLogin;
 import javax.swing.JOptionPane;
 
 /**
@@ -258,8 +259,9 @@ public class CadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_checkAdministradorActionPerformed
 
     private void btCancelarCadastroTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarCadastroTarefaActionPerformed
-        new Login().setVisible(true);
+        new Home().setVisible(true);
         setVisible(false);
+        Home.getUsuarioLogin();
     }//GEN-LAST:event_btCancelarCadastroTarefaActionPerformed
 
     private void btCadastroTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroTarefaActionPerformed
@@ -277,7 +279,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         
 
         if(Senha.equals(ConfirmacaoSenha)){
-            int ID = usuario.getListaUsuarios().size();
+            int ID = Usuario.getListaUsuarios().size();
 
             Usuario newUsuario = new Usuario(ID, Nome, Login, tipoUsuario, Senha, true);
             
@@ -288,6 +290,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
             if(JOptionPane.YES_OPTION == 0){
                 new Home().setVisible(true);
                 setVisible(false);
+                Home.getUsuarioLogin();
             }
             
             }else {

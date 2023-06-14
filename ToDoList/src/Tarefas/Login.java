@@ -216,6 +216,18 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Usuario.registerUsuarioPadrao();
+        
+        for(int i = 0; i < 5; i++){
+            Tarefa newTarefa = new Tarefa(i, "", "", "", "", false,0);
+            Tarefa.setListaTarefas(newTarefa);
+        }
+        
+        for(int i = 5; i < 10; i++){
+            Tarefa newTarefa = new Tarefa(i, "", "", "", "", true,0);
+            Tarefa.setListaTarefas(newTarefa);
+        }
+        
+        Tarefa.setTotalTarefas();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
