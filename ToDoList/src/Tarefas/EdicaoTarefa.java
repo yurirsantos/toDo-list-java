@@ -298,12 +298,12 @@ public class EdicaoTarefa extends javax.swing.JFrame {
        
        Tarefa.setNewPrioridade(newPrioridade);
        
-        JOptionPane.showMessageDialog(null, "Tarefa atualizada");
-        
-        if(JOptionPane.YES_OPTION == 0){
+       JOptionPane.showMessageDialog(null, "Tarefa atualizada");
+
+       if(JOptionPane.YES_OPTION == 0){
             new ListaTarefas().setVisible(true);
             setVisible(false);
-        }
+       }
 
     }//GEN-LAST:event_btSalvarActionPerformed
 

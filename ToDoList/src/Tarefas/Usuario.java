@@ -96,6 +96,18 @@ public class Usuario {
         return ListaUsuarios.get(ID).ID;
     }
     
+    public static int getIDUsuarioLogin(String login){
+        int IDUsuario = -1;
+        
+        for(int i = 0; i < ListaUsuarios.size(); i++){
+            if(ListaUsuarios.get(i).login.equals(login)){
+                IDUsuario = ListaUsuarios.get(i).ID;
+            }
+        }
+        
+        return IDUsuario;
+    }
+    
     public static String getNomeUsuario(int ID){
         return ListaUsuarios.get(ID).nome;
     }
