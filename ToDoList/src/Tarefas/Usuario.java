@@ -73,6 +73,25 @@ public class Usuario {
         return loginSelect.ID;
     }
     
+    public static String getEmailUsuario(int ID){
+        return ListaUsuarios.get(ID).login;
+    }
+    
+    public static String getTipoUsuario(int ID){
+        return ListaUsuarios.get(ID).tipo;
+    }
+    
+    public static String getStatusUsuario(int ID){
+        String status = "";
+        
+        if(ListaUsuarios.get(ID).status){
+            status = "Ativo(a)";
+        }else {
+            status = "Inativo(a)";
+        }
+        return status;
+    }
+        
     public static int getIDUsuario(int ID){
         return ListaUsuarios.get(ID).ID;
     }

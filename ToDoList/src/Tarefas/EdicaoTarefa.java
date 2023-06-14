@@ -348,6 +348,9 @@ public class EdicaoTarefa extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(null, "Tarefa finalizada com sucesso!");
         
+        Tarefa.setTotalTarefas();
+        Home.getUsuarioLogin();
+        
         if(JOptionPane.YES_OPTION == 0){
             new ListaTarefas().setVisible(true);
             setVisible(false);
@@ -358,6 +361,9 @@ public class EdicaoTarefa extends javax.swing.JFrame {
         Tarefa.setNewStatus(false);
         
         JOptionPane.showMessageDialog(null, "Tarefa aberta com sucesso!");
+        
+        Tarefa.setTotalTarefas();
+        Home.getUsuarioLogin();
         
         if(JOptionPane.YES_OPTION == 0){
             new ListaTarefas().setVisible(true);
