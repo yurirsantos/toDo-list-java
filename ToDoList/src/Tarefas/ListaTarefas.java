@@ -42,8 +42,6 @@ public class ListaTarefas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(500, 300));
-        setPreferredSize(null);
-        getContentPane().setLayout(null);
 
         tableListaTarefas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -81,17 +79,12 @@ public class ListaTarefas extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableListaTarefas);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(6, 36, 1097, 275);
-
         menuCadastroTarefa.setText("Cadastro Tarefa");
         menuCadastroTarefa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuCadastroTarefaActionPerformed(evt);
             }
         });
-        getContentPane().add(menuCadastroTarefa);
-        menuCadastroTarefa.setBounds(90, 0, 136, 24);
 
         btAcessarTarefa.setText("Acessar");
         btAcessarTarefa.addActionListener(new java.awt.event.ActionListener() {
@@ -99,18 +92,10 @@ public class ListaTarefas extends javax.swing.JFrame {
                 btAcessarTarefaActionPerformed(evt);
             }
         });
-        getContentPane().add(btAcessarTarefa);
-        btAcessarTarefa.setBounds(180, 347, 84, 24);
-        getContentPane().add(inputIDTarefa);
-        inputIDTarefa.setBounds(6, 347, 174, 24);
 
         jLabel1.setText("ID Tarefa");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(6, 323, 60, 18);
 
         jLabel2.setText("Informe o ID da tarefa para edição");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(6, 377, 220, 18);
 
         menuHome.setText("Home");
         menuHome.addActionListener(new java.awt.event.ActionListener() {
@@ -118,8 +103,6 @@ public class ListaTarefas extends javax.swing.JFrame {
                 menuHomeActionPerformed(evt);
             }
         });
-        getContentPane().add(menuHome);
-        menuHome.setBounds(6, 0, 72, 24);
 
         menuCadastroUsuário.setText("Cadastro Usuário");
         menuCadastroUsuário.addActionListener(new java.awt.event.ActionListener() {
@@ -127,8 +110,46 @@ public class ListaTarefas extends javax.swing.JFrame {
                 menuCadastroUsuárioActionPerformed(evt);
             }
         });
-        getContentPane().add(menuCadastroUsuário);
-        menuCadastroUsuário.setBounds(238, 0, 144, 24);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(menuHome)
+                        .addGap(12, 12, 12)
+                        .addComponent(menuCadastroTarefa)
+                        .addGap(12, 12, 12)
+                        .addComponent(menuCadastroUsuário))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1097, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(inputIDTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(btAcessarTarefa))
+                    .addComponent(jLabel2)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(menuHome)
+                    .addComponent(menuCadastroTarefa)
+                    .addComponent(menuCadastroUsuário))
+                .addGap(12, 12, 12)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel1)
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(inputIDTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btAcessarTarefa))
+                .addGap(6, 6, 6)
+                .addComponent(jLabel2))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

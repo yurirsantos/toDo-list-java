@@ -133,7 +133,6 @@ public class CadastroTarefa extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CadastroTarefa");
         setMinimumSize(new java.awt.Dimension(500, 300));
-        getContentPane().setLayout(null);
 
         btCancelarCadastroTarefa.setText("Cancelar");
         btCancelarCadastroTarefa.setToolTipText("btCancelar");
@@ -142,8 +141,6 @@ public class CadastroTarefa extends javax.swing.JFrame {
                 btCancelarCadastroTarefaActionPerformed(evt);
             }
         });
-        getContentPane().add(btCancelarCadastroTarefa);
-        btCancelarCadastroTarefa.setBounds(314, 419, 89, 24);
 
         btCadastroTarefa.setText("Cadastrar");
         btCadastroTarefa.setToolTipText("btCadastrar");
@@ -152,8 +149,6 @@ public class CadastroTarefa extends javax.swing.JFrame {
                 btCadastroTarefaActionPerformed(evt);
             }
         });
-        getContentPane().add(btCadastroTarefa);
-        btCadastroTarefa.setBounds(409, 419, 95, 24);
 
         inputTitulo.setToolTipText("inputTitulo");
         inputTitulo.addContainerListener(new java.awt.event.ContainerAdapter() {
@@ -173,30 +168,17 @@ public class CadastroTarefa extends javax.swing.JFrame {
                 inputTituloActionPerformed(evt);
             }
         });
-        getContentPane().add(inputTitulo);
-        inputTitulo.setBounds(6, 30, 489, 24);
 
         jLabel1.setText("Título");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(6, 6, 35, 18);
 
         jLabel2.setText("Descrição");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(6, 66, 67, 18);
 
         inputDescricao.setColumns(20);
         inputDescricao.setRows(5);
         inputDescricao.setToolTipText("inputDescrição");
         jScrollPane1.setViewportView(inputDescricao);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(6, 90, 489, 96);
-
         jLabel3.setText("Data de Entrega");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(6, 192, 106, 18);
-        getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(15, 396, 489, 17);
 
         buttonGroup1.add(checkBaixa);
         checkBaixa.setText("Baixa");
@@ -205,12 +187,8 @@ public class CadastroTarefa extends javax.swing.JFrame {
                 checkBaixaActionPerformed(evt);
             }
         });
-        getContentPane().add(checkBaixa);
-        checkBaixa.setBounds(6, 281, 59, 22);
 
         jLabel4.setText("Prioridade");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(6, 257, 66, 18);
 
         buttonGroup1.add(checkMedia);
         checkMedia.setText("Média");
@@ -219,8 +197,6 @@ public class CadastroTarefa extends javax.swing.JFrame {
                 checkMediaActionPerformed(evt);
             }
         });
-        getContentPane().add(checkMedia);
-        checkMedia.setBounds(83, 281, 61, 22);
 
         buttonGroup1.add(checkAlta);
         checkAlta.setText("Alta");
@@ -229,16 +205,10 @@ public class CadastroTarefa extends javax.swing.JFrame {
                 checkAltaActionPerformed(evt);
             }
         });
-        getContentPane().add(checkAlta);
-        checkAlta.setBounds(162, 281, 47, 22);
 
         jLabel5.setText("Usuário Responsável");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(6, 315, 139, 18);
 
         inputDataEntrega.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-        getContentPane().add(inputDataEntrega);
-        inputDataEntrega.setBounds(6, 216, 489, 24);
 
         listaUsuarios.setName(""); // NOI18N
         listaUsuarios.addActionListener(new java.awt.event.ActionListener() {
@@ -246,9 +216,91 @@ public class CadastroTarefa extends javax.swing.JFrame {
                 listaUsuariosActionPerformed(evt);
             }
         });
-        getContentPane().add(listaUsuarios);
-        listaUsuarios.setBounds(6, 351, 489, 24);
         setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(inputTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(inputDataEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(checkBaixa)
+                        .addGap(18, 18, 18)
+                        .addComponent(checkMedia)
+                        .addGap(18, 18, 18)
+                        .addComponent(checkAlta))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(listaUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(314, 314, 314)
+                        .addComponent(btCancelarCadastroTarefa)
+                        .addGap(6, 6, 6)
+                        .addComponent(btCadastroTarefa)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jLabel1)
+                .addGap(6, 6, 6)
+                .addComponent(inputTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel2)
+                .addGap(6, 6, 6)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(jLabel3)
+                .addGap(6, 6, 6)
+                .addComponent(inputDataEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(jLabel4)
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(checkBaixa)
+                    .addComponent(checkMedia)
+                    .addComponent(checkAlta))
+                .addGap(12, 12, 12)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addComponent(listaUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btCancelarCadastroTarefa)
+                    .addComponent(btCadastroTarefa)))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

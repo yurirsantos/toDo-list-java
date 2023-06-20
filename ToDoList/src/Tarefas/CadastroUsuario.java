@@ -288,9 +288,8 @@ public class CadastroUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Usuário cadastrado(a)!");
             
             if(JOptionPane.YES_OPTION == 0){
-                new Home().setVisible(true);
+                new Login().setVisible(true);
                 setVisible(false);
-                Home.getUsuarioLogin();
             }
             
             }else {
