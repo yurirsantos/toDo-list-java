@@ -132,7 +132,7 @@ public class CadastroTarefa extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CadastroTarefa");
-        setMinimumSize(new java.awt.Dimension(500, 300));
+        setMinimumSize(null);
 
         btCancelarCadastroTarefa.setText("Cancelar");
         btCancelarCadastroTarefa.setToolTipText("btCancelar");
