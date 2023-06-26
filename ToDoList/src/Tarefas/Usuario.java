@@ -6,6 +6,7 @@ package Tarefas;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -45,8 +46,24 @@ public class Usuario {
         return ListaUsuarios;
     }
     
-    public static void setUsuarioLista(Usuario newUsuario){
-        ListaUsuarios.add(newUsuario);
+    public static boolean setUsuarioLista(Usuario newUsuario){
+        Boolean userRegister = true;
+        
+        for(int i = 0; i < ListaUsuarios.size(); i++){
+            String loginUserRegister = ListaUsuarios.get(i).login;
+            
+            if(loginUserRegister.equals(newUsuario.login)){
+                userRegister = false;
+            }
+        }
+        
+        if(userRegister){
+            ListaUsuarios.add(newUsuario);
+        }else {
+            JOptionPane.showMessageDialog(null, "Usuário já cadastrado(a)!");
+        }
+        
+        return userRegister;
     }
     
     public static Boolean login(String login, String senha){        

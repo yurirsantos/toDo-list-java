@@ -282,15 +282,17 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
             Usuario newUsuario = new Usuario(ID, Nome, Login, tipoUsuario, Senha, true);
             
-            Usuario.setUsuarioLista(newUsuario);
-
-            JOptionPane.showMessageDialog(null, "Usuário cadastrado(a)!");
+            Boolean returnRegisterUSer = Usuario.setUsuarioLista(newUsuario);
             
-            if(JOptionPane.YES_OPTION == 0){
-                new Login().setVisible(true);
-                setVisible(false);
+            if(returnRegisterUSer){
+                JOptionPane.showMessageDialog(null, "Usuário cadastrado(a)!");
+            
+                if(JOptionPane.YES_OPTION == 0){
+                    new Home().setVisible(true);
+                    setVisible(false);
+                }
             }
-            
+
             }else {
                 btCadastro.setVisible(false);
                 JOptionPane.showMessageDialog(null, "Senhas diferentes!");

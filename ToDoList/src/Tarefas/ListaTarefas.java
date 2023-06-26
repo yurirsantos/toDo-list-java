@@ -236,7 +236,8 @@ public class ListaTarefas extends javax.swing.JFrame {
     }//GEN-LAST:event_menuHomeActionPerformed
 
     private void menuCadastroUsuárioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroUsuárioActionPerformed
-        // TODO add your handling code here:
+       new CadastroUsuario().setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_menuCadastroUsuárioActionPerformed
 
     public static void getUsuarioLogin(){
