@@ -259,9 +259,8 @@ public class CadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_checkAdministradorActionPerformed
 
     private void btCancelarCadastroTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarCadastroTarefaActionPerformed
-        new Home().setVisible(true);
+        new Login().setVisible(true);
         setVisible(false);
-        Home.getUsuarioLogin();
     }//GEN-LAST:event_btCancelarCadastroTarefaActionPerformed
 
     private void btCadastroTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroTarefaActionPerformed
